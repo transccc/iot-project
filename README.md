@@ -1,2 +1,2 @@
 # iot-project
-Sensor for detecting humidity in boat
+Sensor for detecting humidity in boa
