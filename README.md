@@ -1,6 +1,6 @@
 # Door Temperature Monitor
 
-**Per Karlsson Kremer, pk222yh**
+
 
 ## Short Project Overview
 This project involves setting up an MQTT broker and Node-Red to monitor IoT devices, specifically focusing on integrating various sensors and ensuring reliable data transmission.
