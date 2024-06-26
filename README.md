@@ -75,7 +75,5 @@ I figured out that MQTT connection inconsistency might be due to ID conflicts wh
 Additionally, I realized I forgot to use `sys.exit()`, which helped terminate running instances, allowing the program to run as intended and consistently connect to the MQTT broker. Using the magnet avoided multithreading issues, though it didn't entirely resolve the MQTT problems, it was still an improvement.
 
 Using JSON packages and debug nodes, I was able to print the following results:
-*(Include example output here)*
-
 ### Different Platforms Discussed
 
