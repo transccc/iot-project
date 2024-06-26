@@ -81,5 +81,4 @@ Using JSON packages and debug nodes, I was able to print the following results:
 *(Include example output here)*
 
 ### Different Platforms Discussed
-*(Include discussion on different platforms tested and chosen)*
 
