@@ -57,7 +57,7 @@ This project aims to provide insights into the reliability of different sensors,
 
 ## Platform
 ### Choice of Platform
-  - Using a local MQTT broker (Mosquitto) for data handling due to its ability to integrate seamlessly with Node-Red, providing a wide range of customizability for both active and passive usage of information. MQTT works by sending information from a client to a broker.   - Different clients can subscribe to this broker to receive data. This setup allows clients to publish messages to a topic, and other subscribed clients can receive this information in real-time. This architecture offers flexibility and efficiency in managing IoT, data and interactions. 
+  - Using a local MQTT broker (Mosquitto) for data handling due to its ability to integrate seamlessly with Node-Red, providing a wide range of customizability for both active and passive usage of information. MQTT works by sending information from a client to a broker.   - Different clients can subscribe to this broker to receive data. This setup allows clients to publish messages to a topic, and other subscribed clients can receive this information in real-time. This architecture offers flexibility and efficiency in managing IoT  interactions. 
 
  
 
