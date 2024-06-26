@@ -52,7 +52,6 @@ This project aims to provide insights into the reliability of different sensors,
 ### Circuit Diagram
 ![Alt text](https://github.com/transccc/iot-project/blob/main/Screenshot%202024-06-26%20233441.png)
 
-### Electrical Calculations
 
 
 ## Platform
