@@ -64,7 +64,7 @@ This project aims to provide insights into the reliability of different sensors,
   - Chose local for greater control and lower latency.
 
 ## Implementation Details
-Initially, I used the MQTT broker and set it up to start first in a batch file. However, due to using ChatGPT, I set it up as an executable file to start from my PC. This caused Windows to flag it as a virus, which was alarming. Despite this, the MQTT broker can now be directly set up from the PC. This allows the localhost to easily open both Node-Red and the broker, and it also creates a topic.
+Initially, I used the MQTT broker and set it up to start first in a batch file. This allows the localhost to easily open both Node-Red and the broker, and it also creates a topic.
 
 This setup, however, did not solve the issue regarding the client startup with the sensors, which I decided to handle manually. I configured Node-Red to create a graph, aiming for consistency despite the unstable internet connection for my Pico. I also added a collision sensor to measure temperature and detect if the door closes.
 
