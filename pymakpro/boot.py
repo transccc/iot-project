@@ -37,12 +37,12 @@ def connect_mqtt():
             client = MQTTClient(client_id, '192.168.1.225', port=port, user=keys.MQTT_USER, password=keys.MQTT_PASS)
             client.set_callback(mqtt_callback)
             client.connect()
-            client.subscribe('main')  # Subscribe to your topic "main"
+            client.subscribe('main')  
             print("Connected to MQTT broker and subscribed to topic 'main'")
             return client
         except Exception as e:
             print(f"Attempt {attempt + 1} of {retries}: Failed to connect to MQTT broker: {e}")
-            sleep(2)  # Wait before retrying
+            sleep(2)  
     raise Exception("Failed to connect to MQTT broker after multiple attempts")
 
 def disconnect_mqtt():
@@ -50,13 +50,13 @@ def disconnect_mqtt():
         client.disconnect()
         print("Disconnected from MQTT broker")
 
-# WiFi Connection
+# WiFi 
 try:
     ip = connect_wifi()
 except Exception as e:
     print(f"Failed to connect to WiFi: {e}")
 
-# MQTT Connection
+# MQTT 
 try:
     client = connect_mqtt()
     print('MQTT client initialized')
@@ -70,13 +70,13 @@ def main_loop():
     try:
         while True:
             client.check_msg()
-            sleep(1)  # Adjust the sleep interval as needed
+            sleep(1)  
     except Exception as e:
         print(f"An error occurred: {e}")
         sleep(10)
         machine.reset()
 
-# Terminate any existing instance before running again
+# Terminate instance berfore running again 
 if __name__ == "__main__":
     disconnect_mqtt()
     sys.exit() 
