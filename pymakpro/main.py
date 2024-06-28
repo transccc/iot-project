@@ -15,12 +15,13 @@ reed_switch_pin = machine.Pin(3, machine.Pin.IN, machine.Pin.PULL_UP)
 # Set the OUTPUT pin to on-board LED
 led = Pin("LED", Pin.OUT)
 
-# Function to read reed switch
 def read_reed_switch():
     return reed_switch_pin.value() == 0  # Reed switch is active when the magnet is close
+#50 = DOOR IS OPEN
+#0 = DOOR IS CLOSED
 
 def main_loop():
-    reed_status = "No magnet"
+    reed_status = "50"
     while True:
         try:
             # Blink the LED to indicate the loop is running
@@ -31,15 +32,17 @@ def main_loop():
             
             # Read the reed switch
             current_reed_status = read_reed_switch()
-            reed_status = "No Magnet" if current_reed_status else "Magnet detected"
-            
+            if current_reed_status:
+                 reed_status = "50"
+            else:
+                reed_status = "0"
             # Read DHT11 temperature and humidity
             dht11.measure()
             temperature_dht11 = dht11.temperature()
             humidity_dht11 = dht11.humidity()
             print(f"DHT11 Temperature: {temperature_dht11} °C, Humidity: {humidity_dht11}%, Reed Status: {reed_status}")
             
-            # Construct JSON payload
+            # JSON payload
             payload = {
                 "temperature": temperature_dht11,
                 "humidity": humidity_dht11,
@@ -57,8 +60,6 @@ def main_loop():
             print(f"Failed to read from DHT11 sensor: {e}")
         except Exception as e:
             print(f"An error occurred: {e}")
-
-        # Delay before the next reading
         time.sleep(2)
 
 try:
