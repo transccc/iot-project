@@ -6,11 +6,11 @@
 This project involves setting up an MQTT broker and Node-Red to monitor IoT devices, specifically focusing on integrating various sensors and ensuring reliable data transmission.
 
 **Approximate Time to Complete:**
-- Total: 140 hours
-  - Setup: 20 hours
-  - Research: 40 hours
-  - Mosquitto Setup: 45 hours
-  - Node-Red Setup: 25 hours
+- Total: 51 hours
+  - Setup: 1 hours
+  - Research: 5 hours
+  - Mosquitto Setup: 20 hours
+  - Node-Red Setup: 15 hours
   - InfluxDB Setup: 10 hours 
 
 ## Objective
@@ -24,17 +24,15 @@ The device serves to monitor temperature in relation to a door opening and allow
 This project aims to provide insights into the reliability of different sensors, the efficiency of MQTT for data transmission, and the practical challenges of integrating multiple sensors in an IoT setup.
 
 ## Material
-### List of Material
-1. **Raspberry Pi Pico WH**
-   - Source: Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)
-2. **USB-Cable A-male to Micro B 5p Male 1.8m**
-   - Source: Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)
-3. **Lab-Cable 30cm Female/Male**
-   - Source: Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)
-4. **Digital Temperature and Humidity Sensor DHT11**
-   - Source: Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)
-5. **Reed Switch Module Mini**
-   - Source: Elektrokit (included in the Sensor Kit - 25 modules)
+
+| **Material**                                | **Source**                                                                                       |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| Raspberry Pi Pico WH                        | Elektrokit (109 kr)                |
+| USB-Cable A-male to Micro B 5p Male 1.8m    | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)                |
+| Lab-Cable 30cm Female/Male                  | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)                |
+| Digital Temperature and Humidity Sensor DHT11 | Elektrokit (49 kr)                      |
+| Reed Switch Module Mini                     | Elektrokit (25 kr)                                             |
+
 
 ### Images
 
