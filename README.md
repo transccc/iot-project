@@ -70,8 +70,9 @@ This project aims to provide insights into the reliability of different sensors,
 
 
 ### Electrical Calculations
-- I needed to add 3 extra 330 ohm resistors for the power bank to recognize the device as drawing power. These 3 resistors were added in parallel, as seen in the image above, which gives a power draw of approximately:
+- I needed to add 3 extra 330 ohm resistors for the power bank to recognize the device as drawing power. These 3 resistors were added in parallel, as seen in the image above. 
 
+  With the help of:
 
   $\frac{1}{R_{\text{total}}} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}$
 
@@ -83,13 +84,11 @@ This project aims to provide insights into the reliability of different sensors,
 
   $R_{\text{total}} = \frac{330}{3} = 110 \ \Omega$
 
-  Using Ohm's Law ($V = IR$), anda 3.3V power supply:
+  Using Ohm's Law ($V = IR$), and assuming a 5V power supply:
 
-  $I = \frac{V}{R} = \frac{3.3V}{110 \, \Omega} \approx 30 \ mA$
+  $I = \frac{V}{R} = \frac{5V}{110 \, \Omega} \approx 45.45 \ mA$
 
-  This current draw is sufficient for the power bank to recognize the device as active and continuously supply power. As it supplied 2 A
-
-
+  This current draw is sufficient for the power bank to recognize the device as active and continuously supply power. As the current supplied by the powerbank was max 2 A. 
 
 
 
