@@ -34,7 +34,7 @@ This project aims to provide insights into the reliability of different sensors,
 | Lab-Cable 30cm Female/Male                  | Jumper wires for breadboard connections                                                          | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)                |
 | Digital Temperature and Humidity Sensor DHT11 | Measures temperature and humidity                                                                | Elektrokit (49 kr)                                                                               |
 | Reed Switch Module Mini                     | Magnetic switch for detecting door open/close state                                              | Elektrokit (25 kr)                                                                               |
-| Breadboard                                  | Board for connecting electronic components                                           | Elektrokit (25 kr)                                                                               |
+| Breadboard                                  | Board for connecting electronic components                                           | Elektrokit (49 kr)                                                                               |
 
 
 ### Images
