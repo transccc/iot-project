@@ -6,10 +6,10 @@
 This project involves setting up an MQTT broker and Node-Red to monitor IoT devices, specifically focusing on integrating various sensors and ensuring reliable data transmission.
 
 **Approximate Time to Complete:**
-- Total: 155 hours
+- Total: 140 hours
   - Setup: 20 hours
   - Research: 40 hours
-  - Mosquitto Setup: 60 hours
+  - Mosquitto Setup: 45 hours
   - Node-Red Setup: 25 hours
   - InfluxDB Setup: 10 hours 
 
@@ -46,8 +46,8 @@ This project aims to provide insights into the reliability of different sensors,
 ### Steps for Computer Setup
 1. **Flashing Firmware:**
    - Hold BOOTSEL, plugg in the device with the USB and then flashh via the UF2 bootloader, by draging the file into the driver.
-2. **Plugin Installation:**
-   - Install Node.js, Micropython, Node-red and Mosquitto
+2. **Installation:**
+   - Install Node.js, Micropython, Node-red, Mosquitto and InfluxDB
 
 ## Putting Everything Together
 ### Circuit Diagram
@@ -57,10 +57,28 @@ This project aims to provide insights into the reliability of different sensors,
 
 ## Platform
 ### Choice of Platform
-  - Using a local MQTT broker (Mosquitto) for data handling due to its ability to integrate seamlessly with Node-Red, providing a wide range of customizability for both active and passive usage of information. MQTT works by sending information from a client to a broker.   - Different clients can subscribe to this broker to receive data. This setup allows clients to publish messages to a topic, and other subscribed clients can receive this information in real-time. This architecture offers flexibility and efficiency in managing IoT  interactions. 
+I used Node-Red and InfluxDB as the primary platforms for this project. Node-Red offers robust real-time data analysis and integration capabilities, along with active notifications. It provides a locally hosted platform with numerous solutions, enabling the creation of a comprehensive dashboard with the help of InfluxDB. The data is transmitted using a local MQTT broker (Mosquitto) for seamless integration with Node-Red.
 
- 
+- **Local Setup:** Chosen for enhanced control and privacy, avoiding dependency on external cloud services.
+- **Free Services:** Utilized to keep costs low.
+- **Functionality:** Real-time data transmission, monitoring, customizable dashboards, and notifications via Pushbullet
 
+## Transmitting the Data / Connectivity
+### Data Transmission Details
+- **Data Frequency:** Sent every 3 seconds.
+- **Wireless Protocols:** WiFi for local transmission.
+- **Transport Protocols:** MQTT for efficient, low-overhead communication, HTTP to Pushbullet for realtime notfications. 
+
+### Design Choices
+- **Data Transmission:** Chose MQTT for its lightweight protocol, suitable for IoT. Additionally, HTTP is used to send notifications to Pushbullet, ensuring timely alerts.
+- **Wireless Protocols:** WiFi provides sufficient range and speed for this application, considering the local environment.
+
+## Presenting the Data
+### Dashboard
+- **Visualization:** InfluxDB dashboard showing real-time temperature, humidity and reed switch data.
+- **Data Storage:** Data saved in InfluxDB, preserved indefinitely for historical analysis.
+- **Database Choice:** InfluxDB chosen for its time-series data handling capabilities and dashboard functionality.
+- **Automation:** Alerts and triggers set up when the door opens. Node-Red automatically sends HTTP POST requests to Pushbullet for real-time notifications when the door opens and closes.
 ## Implementation Details
 Initially, I used the MQTT broker and set it up to start first in a batch file. This allows the localhost to easily open both Node-Red and the broker, and it also creates a topic.
 
