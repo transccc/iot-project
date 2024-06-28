@@ -6,11 +6,12 @@
 This project involves setting up an MQTT broker and Node-Red to monitor IoT devices, specifically focusing on integrating various sensors and ensuring reliable data transmission.
 
 **Approximate Time to Complete:**
-- Total: 140 hours
+- Total: 155 hours
   - Setup: 20 hours
   - Research: 40 hours
   - Mosquitto Setup: 60 hours
-  - Node-Red Configuration: 20 hours
+  - Node-Red Setup: 25 hours
+  - InfluxDB Setup: 10 hours 
 
 ## Objective
 ### Why I Chose the Project
