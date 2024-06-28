@@ -3,7 +3,7 @@ import network
 from time import sleep
 from simple import MQTTClient
 
-client = None  # Global client variable
+client = None  # Global 
 
 def connect_wifi():
     wlan = network.WLAN(network.STA_IF)
@@ -26,7 +26,7 @@ def setup_mqtt():
     except Exception as e:
         print("Failed to setup MQTT: {}".format(e))
 
-# Initialization sequence
+# Initialization 
 connect_wifi()
 setup_mqtt()
 
