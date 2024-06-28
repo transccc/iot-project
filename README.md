@@ -44,12 +44,26 @@ This project aims to provide insights into the reliability of different sensors,
 ### Chosen IDE
 - **IDE:** VSCode with MicroPython
 
+## Computer Setup
+### Chosen IDE
+- **IDE:** VSCode with MicroPython
+
 ### Steps for Computer Setup
 1. **Flashing Firmware:**
-   - Hold BOOTSEL, plugg in the device with the USB and then flashh via the UF2 bootloader, by draging the file into the driver.
-2. **Installation:**
-   - Install Node.js, Micropython, Node-red, Mosquitto and InfluxDB
+   - Hold the BOOTSEL button and plug in the Pico WH with the USB cable.
+   - Drag the [firmware file](https://micropython.org/download/RPI_PICO_W/) into the drive that pops up (RPI-RP2).
 
+2. **Installation:**
+   - Install [VSCode](https://code.visualstudio.com/download).
+   - Install [Node.js](https://nodejs.org/en).
+   - Install Pymakr in VSCode:
+     - Open VSCode and click on the extension tab on the left-hand side.
+     - Search for "Pymaker" and install it.
+     - On the left-hand side, a new icon for Pymakr should appear. Click on it and select "Create Project".
+     - Create a folder and then select "Use this folder". A window will appear asking for the project name. Enter your desired project name, then select "empty" when asked for a template.
+     - Click "Add Device" located under the empty project in the Pymakr tab, then select your device and click "OK".
+     - Selecting development mode in Pymakr will now automatically upload the files to the device.
+   - Install Node-Red, Mosquitto, and InfluxDB.
 ## Putting Everything Together
 ### Circuit Diagram
 ![Alt text](https://github.com/transccc/iot-project/blob/main/Screenshot%202024-06-26%20233441.png)
