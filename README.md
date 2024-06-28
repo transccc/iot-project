@@ -62,11 +62,34 @@ This project aims to provide insights into the reliability of different sensors,
      - On the left-hand side, a new icon for Pymakr should appear. Click on it and select "Create Project".
      - Create a folder and then select "Use this folder". A window will appear asking for the project name. Enter your desired project name, then select "empty" when asked for a template.
      - Click "Add Device" located under the empty project in the Pymakr tab, then select your device and click "OK".
-     - Selecting development mode in Pymakr will now automatically upload the files to the device.
+     - Selecting the lighting icon and then selecting development mode in Pymakr will now automatically upload the files to the device.
    - Install Node-Red, Mosquitto, and InfluxDB.
 ## Putting Everything Together
 ### Circuit Diagram
-![Alt text](https://github.com/transccc/iot-project/blob/main/Screenshot%202024-06-26%20233441.png)
+![Alt text](https://github.com/transccc/iot-project/blob/main/Screenshot%202024-06-29%20002548.png)
+
+
+### Electrical Calculations
+- I needed to add 3 extra 330 ohm resistors for the power bank to recognize the device as drawing power. These 3 resistors were added in parallel, as seen in the image above, which gives a power draw of approximately:
+
+
+  $\frac{1}{R_{\text{total}}} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}$
+
+  For three 330 ohm resistors:
+
+  $\frac{1}{R_{\text{total}}} = \frac{1}{330} + \frac{1}{330} + \frac{1}{330}$
+
+  $\frac{1}{R_{\text{total}}} = \frac{3}{330}$
+
+  $R_{\text{total}} = \frac{330}{3} = 110 \ \Omega$
+
+  Using Ohm's Law ($V = IR$), anda 3.3V power supply:
+
+  $I = \frac{V}{R} = \frac{3.3V}{110 \, \Omega} \approx 30 \ mA$
+
+  This current draw is sufficient for the power bank to recognize the device as active and continuously supply power. As it supplied 2 A
+
+
 
 
 
