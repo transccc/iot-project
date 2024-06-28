@@ -84,7 +84,7 @@ This project aims to provide insights into the reliability of different sensors,
 
   $R_{\text{total}} = \frac{330}{3} = 110 \ \Omega$
 
-  Using Ohm's Law ($V = IR$), and assuming a 5V power supply:
+  Using Ohm's Law ($V = IR$)  and V = 5 V:
 
   $I = \frac{V}{R} = \frac{5V}{110 \, \Omega} \approx 45.45 \ mA$
 
