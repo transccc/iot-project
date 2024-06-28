@@ -25,13 +25,16 @@ This project aims to provide insights into the reliability of different sensors,
 
 ## Material
 
-| **Material**                                | **Source**                                                                                       |
-|---------------------------------------------|--------------------------------------------------------------------------------------------------|
-| Raspberry Pi Pico WH                        | Elektrokit (109 kr)                |
-| USB-Cable A-male to Micro B 5p Male 1.8m    | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)                |
-| Lab-Cable 30cm Female/Male                  | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)                |
-| Digital Temperature and Humidity Sensor DHT11 | Elektrokit (49 kr)                      |
-| Reed Switch Module Mini                     | Elektrokit (25 kr)                                             |
+## Material
+
+| **Material**                                | **Specification**                                                                                 | **Source**                                                                                       |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| Raspberry Pi Pico WH                        | Microcontroller with Wi-Fi and Bluetooth capabilities                                             | Elektrokit (109 kr)                                                                              |
+| USB-Cable A-male to Micro B 5p Male 1.8m    | Cable for connecting Raspberry Pi Pico to a computer                                             | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)                |
+| Lab-Cable 30cm Female/Male                  | Jumper wires for breadboard connections                                                          | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)                |
+| Digital Temperature and Humidity Sensor DHT11 | Measures temperature and humidity                                                                | Elektrokit (49 kr)                                                                               |
+| Reed Switch Module Mini                     | Magnetic switch for detecting door open/close state                                              | Elektrokit (25 kr)                                                                               |
+| Breadboard                                  | Board for connecting electronic components                                           | Elektrokit (25 kr)                                                                               |
 
 
 ### Images
