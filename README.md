@@ -240,9 +240,35 @@ dht11.measure()
             humidity_dht11 = dht11.humidity()
 ```
 The dht11.measure() function reads the current temperature and humidity values from the DHT11 sensor. The values are stored in temperature_dht11 and humidity_dht11.
+The rest of the code can be found in the [project repository](https://github.com/transccc/iot-project/tree/main/pymakpro)
 ## Transmitting the Data / Connectivity
 ### Data Transmission Details
-- **Data Frequency:** Sent every 3 seconds.
+As previously seen in the code section, MQTT is used to transmit data to a broker, specifically a local broker using Mosquitto. This process involves connecting to Wi-Fi and then to the MQTT broker on the local host. The client publishes messages to this broker in the form of a JSON payload.
+
+The payload includes temperature, humidity, and reed switch status data:
+```
+ payload = {
+                "temperature": temperature_dht11,
+                "humidity": humidity_dht11,
+                "reed_status": reed_status
+            }
+payload_json = ujson.dumps(payload)
+```
+This JSON payload is then published to the MQTT broker as follows:
+
+```
+  if boot.client:
+                boot.client.publish('main', payload_json)
+                print("Published:", payload_json)
+            else:
+                print("MQTT client is not initialized")
+```
+MQTT is a transport protocol that operates using a broker and client model. The broker manages topics, and clients can subscribe to these topics to receive messages. In this project, both Node-RED and the Pico subscribe to the main topic. When the Pico sends a message to this topic, the local Mosquitto broker ensures that Node-RED receives the message. Node-RED then processes the message within its flow. The data sent by the Pico is formatted as JSON payloads, including readings from the DHT11 sensor, such as temperature and humidity, and the status of the reed switch. These JSON payloads are sent every three seconds.
+
+MQTT's model handles real-time data transmission, which is crucial for applications that require immediate updates and responses. Using a local broker like Mosquitto enhances security and reduces latency, as data does not need to travel over the internet. This local hosting setup is customizable, catering to specific needs and preferences, and ensures that data remains within the local network.
+
+Node-RED receives the data from the Pico and processes this information in various ways. For instance, Node-RED can redirect the incoming data to InfluxDB for long-term storage and visualization, allowing for detailed analysis and monitoring of the sensor data over time. Additionally, Node-RED can send real-time notifications via HTTP post requests to Pushbullet, providing alerts about whether the door is open.
+
 - **Wireless Protocols:** WiFi for local transmission.
 - **Transport Protocols:** MQTT for efficient, low-overhead communication, HTTP to Pushbullet for real-time notfications. 
 
