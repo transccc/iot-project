@@ -5,14 +5,14 @@ from dht import DHT11
 import ujson
 import boot
 
-# DHT11 sensor setup
+# DHT11 sensor 
 dht11_pin = machine.Pin(27)
 dht11 = DHT11(dht11_pin)
 
-# Reed Switch setup
+# Reed Switch 
 reed_switch_pin = machine.Pin(3, machine.Pin.IN, machine.Pin.PULL_UP)
 
-# Set the OUTPUT pin to on-board LED
+#OUTPUT pin to pico LED
 led = Pin("LED", Pin.OUT)
 
 def read_reed_switch():
