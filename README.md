@@ -85,7 +85,7 @@ This current draw is sufficient for the power bank to recognize the device as ac
 
 ## Platform
 ### Choice of Platform
-I used Node-Red and InfluxDB as the primary platforms for this project. Node-Red offers robust real-time data analysis and integration capabilities, along with active notifications. It provides a locally hosted platform with numerous solutions, enabling the creation of a comprehensive dashboard and data storage with the help of InfluxDB and direct HTTP POST requests to Pushbullet. The data is transmitted using a local MQTT broker (Mosquitto) for seamless integration with Node-Red. Initially, I considered using the Node-Red UI for visualization, but ultimately decided against it due to its inability to easily provide an aesthetically pleasing dashboard and adequate data storage capabilities.
+I used Node-Red and InfluxDB as the main platforms for this project. Node-Red provides real-time data analysis with the help of its flow. It is a locally hosted platform with many options, allowing the creation of a full dashboard and data storage with InfluxDB, along with direct HTTP POST requests to Pushbullet. The data is sent using a local MQTT broker for easy integration with Node-Red. At first, I considered using the Node-Red UI for visualisation, but I chose not to because it could not easily provide a aesthetically pleasing dashboard and had no data storage capabilities. 
 ## The Code
 ### Set up Wi-Fi and MQTT credentials 
 - In the code boot.py you may notice that there are keys
