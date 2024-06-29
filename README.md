@@ -243,6 +243,33 @@ The dht11.measure() function reads the current temperature and humidity values f
 The rest of the code can be found in the [project repository](https://github.com/transccc/iot-project/tree/main/pymakpro)
 ## Transmitting the Data / Connectivity
 ### Data Transmission Details
+Wifi is used primaliy used in this projet to connect devices within the network. This is connection is done trough a central hub: The Wi-Fi router. The project also uses wifi for the HTTP post request, which instead sends the data to the router then to the Pushbullet which then sends the message as a notfication to my phone. As seen in the previously mentioned code, the code operates trough
+```
+def connect_wifi():
+    wlan = network.WLAN(network.STA_IF)
+    if not wlan.isconnected():
+        print('Connecting to network...')
+        wlan.active(True)
+        wlan.connect(keys.WIFI_SSID, keys.WIFI_PASS)
+        while not wlan.isconnected():
+            sleep(1)
+        print('Connected on {}'.format(wlan.ifconfig()[0]))
+```
+which 
+```
+wlan = network.WLAN(network.STA_IF)
+```
+Creates an instance of the wlan from the WLAN class with the help of STA-IF that is a parameter that sets the device to station mode, i.e connecting mode. 
+```
+wlan.connect(keys.WIFI_SSID, keys.WIFI_PASS)
+```
+Uses the ID and Password of the network to connect to the network
+```
+print('Connected on {}'.format(wlan.ifconfig()[0]))
+```
+Gives the ip adress of the Pico in the network 
+<br>
+<br>
 As previously seen in the code section, MQTT is used to transmit data to a broker, specifically a local broker using Mosquitto. This process involves connecting to Wi-Fi and then to the MQTT broker on the local host. The client publishes messages to this broker in the form of a JSON payload.
 
 The payload includes temperature, humidity, and reed switch status data:
