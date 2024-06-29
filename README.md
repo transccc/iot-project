@@ -85,7 +85,34 @@ This current draw is sufficient for the power bank to recognize the device as ac
 ### Choice of Platform
 I used Node-Red and InfluxDB as the primary platforms for this project. Node-Red offers robust real-time data analysis and integration capabilities, along with active notifications. It provides a locally hosted platform with numerous solutions, enabling the creation of a comprehensive dashboard and data storage with the help of InfluxDB and direct HTTP POST requests to Pushbullet. The data is transmitted using a local MQTT broker (Mosquitto) for seamless integration with Node-Red. Initially, I considered using the Node-Red UI for visualization, but ultimately decided against it due to its inability to easily provide an aesthetically pleasing dashboard and adequate data storage capabilities.
 ## The Code
-
+### Set up Wi-Fi and MQTT credentials 
+- In the code boot.py you may notice that there are keys
+  ```
+  def connect_wifi():
+    wlan = network.WLAN(network.STA_IF)
+    if not wlan.isconnected():
+        print('Connecting to network...')
+        wlan.active(True)
+        wlan.connect(keys.WIFI_SSID, keys.WIFI_PASS)
+        while not wlan.isconnected():
+            sleep(1)
+        print('Connected on {}'.format(wlan.ifconfig()[0]))
+  ```
+- Create a separate file named keys.py where wlan.connect can use to connect to the Wi-Fi. The same goes for the MQTT connection in:
+  ```
+  def setup_mqtt():
+    global client
+    try:
+        print("Setting up MQTT connection...")
+        client = MQTTClient('pico_client', '192.168.1.225', user=keys.MQTT_USER, password=keys.MQTT_PASS)
+        client.connect()
+        client.subscribe('main')
+        print("MQTT setup complete")
+    except Exception as e:
+        print("Failed to setup MQTT: {}".format(e))
+  ```
+ -  Add MQTT_USER and MQTT_PASS in the keys.py file so that MQTTClient() gets the required parameters and thereby can subscribe. It is also important to note that the client, which is the pico_client, subscribes to the topic 'main'. It is hence important to set up the topic to match the one the broker is creating. Both the MQTT_PASS and MQTT_USER are important to note for future instructions, as they are the security parameters that the broker should also be set up with accordingly.
+  
 ### Setting Up Mosquitto and Node-RED for MQTT Communication
 
 ### 1. Download and Install Mosquitto
@@ -109,7 +136,7 @@ npm install -g --unsafe-perm node-red
 
 ### 3. Download and Execute the Bash Script
 
-After this, you can easily download the provided bash script [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script). This script allows you to seamlessly start up Mosquitto and Node-RED by providing a username, password, and topic. These details will also be used in "localhost:1880" when creating the MQTT input node in Node-RED.
+After this, you can easily download the provided bash script [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script). This script allows you to seamlessly start up Mosquitto and Node-RED by providing a username, password, and topic. Remember the MQTT_USER, MQTT_PASS, and topic "main" from earlier? These should match the values that you plug into the script. These details will also be used in localhost:1880 when creating the MQTT input node in Node-RED.
 
 - **Download the script**: Click [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script) to download the bash script to your local machine.
 - **Execute the script**:
