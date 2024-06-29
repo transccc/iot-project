@@ -125,7 +125,7 @@ listener 1883
 allow_anonymous false
 password_file C:\Program Files\Mosquitto\passwd
 ```
-### ⚠️ Firewall Configuration Warning
+### ⚠️ Firewall Configuration
 
 When setting up Mosquitto as your MQTT broker, ensure that your firewall is configured to allow traffic on the default MQTT port 1883. Failure to do so can prevent devices and clients from connecting to the broker.
 
