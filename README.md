@@ -21,7 +21,7 @@ I chose to build this project to monitor the temperature and humidity in my room
 | Raspberry Pi Pico WH                    | Microcontroller                                           | Elektrokit (109 kr)                                                              |
 | USB-Cable A-male to Micro B 5p Male 1.8m| Cable for connecting Raspberry Pi Pico to computer        | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)|
 | Lab-Cable 30cm Female/Male              | Jumper wires for breadboard connections                   | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)|
-| Digital Temperature and Humidity Sensor DHT11 | Measures temperature and humidity                        | Elektrokit (49 kr)                                                               |
+| Digital Temperature and Humidity Sensor DHT11(With pull-up resistor) | Measures temperature and humidity                        | Elektrokit (49 kr)                                                               |
 | Reed Switch Module Mini                 | Magnetic switch for detecting door open/close state       | Elektrokit (25 kr)                                                               |
 | Breadboard                              | Board for connecting electronic components                | Elektrokit (49 kr)                                                               |
 | 330 Ohm Resistors                    | Current limiting to keep the power bank active            | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)|
