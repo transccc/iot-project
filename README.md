@@ -1,22 +1,18 @@
-# Door Temperature Monitor
+# Door Cliamte Monitor
 
 
 
-## Short Project Overview
-This project involves setting up an MQTT broker and Node-Red to monitor IoT devices, specifically focusing on integrating various sensors and ensuring reliable data transmission.
+## Project Overview
+Door Climate Monitor is a project that uses local hosting for real-time analysis of temperature, humidity, and door status. It provides both historical data overview and real-time notifications about the status of a door and its historical status in relation to temperature. The purpose of the project is to monitor the insulation of a room, particularly through the status of one door, and to provide real-time updates about that door. It incorporates humidity as a data point to allow for the analysis of other factors, such as whether a window was opened, without directly monitoring the windows.
+.
+
 
 **Approximate Time to Complete:**
 - Total: 35 hours 
 
 ## Objective
-### Why I Chose the Project
-I primarily chose to build this project because I enjoy local hosting and wanted to learn more extensively about networks.
+I chose to build this project to monitor the temperature and humidity in my room. The project aims to gather data about the room's climate conditions and analyze how these conditions are influenced by temperature exchange between my room and the rest of the house. This analysis provides insights into the room's insulation effectiveness, which often causes the temperatures in my room to exceed those outside or in other parts of the house. Additionally, the design includes real-time updates, allowing me to receive notifications about whether the door to my room is open. I used a locally hosted platform due to my desire to learn more about networks and Node-Red. While this project does not create multi-client MQTT networks, it still provides good insight into how it could be expanded in the future.
 
-### Purpose
-The device serves to monitor temperature in relation to a door opening and allows for historical data analysis.
-
-### Insights Expected
-This project aims to provide insights into the reliability of different sensors, the efficiency of MQTT for data transmission, and the practical challenges of integrating multiple sensors in an IoT setup.
 
 ## Material
 
