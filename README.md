@@ -86,21 +86,128 @@ This current draw is sufficient for the power bank to recognize the device as ac
 I used Node-Red and InfluxDB as the primary platforms for this project. Node-Red offers robust real-time data analysis and integration capabilities, along with active notifications. It provides a locally hosted platform with numerous solutions, enabling the creation of a comprehensive dashboard and data storage with the help of InfluxDB and direct HTTP POST requests to Pushbullet. The data is transmitted using a local MQTT broker (Mosquitto) for seamless integration with Node-Red. Initially, I considered using the Node-Red UI for visualization, but ultimately decided against it due to its inability to easily provide an aesthetically pleasing dashboard and adequate data storage capabilities.
 ## The Code
 
+### Setting Up Mosquitto and Node-RED for MQTT Communication
+
+### 1. Download and Install Mosquitto
+
 First, download [Mosquitto](https://mosquitto.org/download/).
 
 After downloading, locate the `mosquitto.conf` file in the newly created Mosquitto folder and add the following lines at the end:
-
 ```
 listener 1883
 allow_anonymous false
 password_file C:\Program Files\Mosquitto\passwd
 ```
+
+### 2. Install Node-RED
+
 Next, install Node-RED by running the following command in the Command Prompt:
 
 ```
 npm install -g --unsafe-perm node-red
 ```
-After this, you can easily download the provided bash script [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script). This script allows you to seamlessly start up Mosquitto and Node-RED by providing a username, password, and topic, which you also define in "localhost:1880" when creating the MQTT in node.
+
+### 3. Download and Execute the Bash Script
+
+After this, you can easily download the provided bash script [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script). This script allows you to seamlessly start up Mosquitto and Node-RED by providing a username, password, and topic. These details will also be used in "localhost:1880" when creating the MQTT input node in Node-RED.
+
+- **Download the script**: Click [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script) to download the bash script to your local machine.
+- **Execute the script**:
+  - Open your terminal.
+  - Navigate to the directory where the script is downloaded.
+  - Run the script with the command:  
+    ```
+    bash mosquitto_bash_script.sh
+    ```
+  - The script will prompt you to enter a username, password, and topic. Note these details as they will be needed later.
+
+### 4. Set Up Node-RED
+
+Configure Node-RED to work with your MQTT setup:
+
+- **Open Node-RED**: In your web browser, go to `localhost:1880`.
+- **Import the Node-RED Flow**: Download the Node-RED flow from [here](https://github.com/transccc/iot-project/blob/main/node-red_flow).
+  - In Node-RED, use the import function to import the flow file.
+- **Configure the MQTT Input Node**:
+  - Locate the MQTT input node in the imported flow, double-click to edit its properties, and update the username, password, and topic fields to match the values provided in the bash script.
+
+### 5. Set Up Notifications via HTTP Request in Node-RED
+
+To enable notifications, you will use Pushbullet to send messages. Follow these steps:
+
+- **Create a Pushbullet Account**:
+  - Go to the [Pushbullet website](https://www.pushbullet.com/).
+  - Sign up for a new account.
+- **Generate a Pushbullet Token**:
+  - Once logged in, navigate to your account settings.
+  - Generate an access token. This token will be used to authenticate your requests.
+- **Configure Node-RED for Pushbullet Notifications**:
+  - In Node-RED, add go to the Door open functions 
+
+  - Use the following command:
+    ```
+    curl -u "YOUR_ACCESS_TOKEN_HERE:" https://api.pushbullet.com/v2/users/me
+    ```
+    This will provide the necessary information to fill out the notification functions in node-red.
+### Setting Up InfluxDB
+
+Follow these steps to download, install, and configure InfluxDB, and integrate it with Node-RED:
+
+1. **Download and Install InfluxDB**:
+   - Go to the [InfluxData Downloads page](https://www.influxdata.com/downloads/).
+   - Select the appropriate version for your operating system and follow the instructions to download and install InfluxDB.
+
+2. **Launch InfluxDB**:
+   - Start InfluxDB by running the appropriate command for your operating system. For example, on Windows:
+     ```
+     influxd
+     ```
+
+3. **Access InfluxDB UI**:
+   - Open your web browser and go to `http://localhost:8086`.
+   - Follow the on-screen instructions to set up your InfluxDB instance.
+
+4. **Create an Account and Configure InfluxDB**:
+   - Create an account by providing the necessary details.
+   - Set up your organization and save the organization name.
+   - Create a bucket and save the bucket name.
+   - Generate an API token and save it for future use.
+
+5. **Configure InfluxDB in Node-RED**:
+   - Open Node-RED in your web browser (`http://localhost:1880`).
+   - Open the InfluxDB node and configure it:
+     - **Server**: Enter `http://localhost:8086`.
+     - **Token**: Enter the API token you generated.
+     - **Organization**: Enter the organization name.
+     - **Bucket**: Enter the bucket name.
+### Configuring a Dashboard in InfluxDB
+
+Follow these steps to set up and customize a dashboard in InfluxDB to visualize your sensor data:
+
+1. **Access Dashboards**:
+   - Click on "Dashboards" on the left-hand side menu in InfluxDB.
+
+2. **Remove Unnecessary Cells**:
+   - Review the default cells in the dashboard.
+   - Remove any cells that you find unnecessary by clicking the trash icon or using the cell's menu options.
+
+3. **Add a New Panel**:
+   - Click on the "+ Add Cell" button to add a new panel.
+   - Choose the "Graph" option for visualizing time-series data.
+
+4. **Configure the Panel**:
+   - Click on the newly added panel to configure it.
+   - In the configuration options, select the bucket that you connected to Node-RED.
+
+5. **Select Measurement and Fields**:
+   - Click on `_measurement` and select `sensor_data`.
+   - In the field window, select the fields `reed_status`, `humidity`, and `temperature`.
+
+6. **Visualize Data**:
+   - Adjust the settings as necessary to optimize the visualization.
+   - You should now see a graph displaying temperature data over time.
+- For more detailed instructions and troubleshooting, refer to the [InfluxDB Documentation](https://docs.influxdata.com/influxdb/v2.0/get-started/) and [Node-RED Documentation](https://nodered.org/docs/).
+ 
 
 ## Transmitting the Data / Connectivity
 ### Data Transmission Details
