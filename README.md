@@ -19,12 +19,16 @@ I chose to build this project to monitor the temperature and humidity in my room
 | **Component**                            | **Specification**                                         | **Source**                                                                       |
 |-----------------------------------------|-----------------------------------------------------------|----------------------------------------------------------------------------------|
 | Raspberry Pi Pico WH                    | Microcontroller                                           | Elektrokit (109 kr)                                                              |
-| USB-Cable A-male to Micro B 5p Male 1.8m| Cable for connecting Raspberry Pi Pico to computer        | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)|
-| Lab-Cable 30cm Female/Male              | Jumper wires for breadboard connections                   | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)|
+| USB cable A-male - microB-male 1.8m| Cable for connecting Raspberry Pi Pico to computer        | Elektrokit (39 kr) |
+| Jumper wires 40-pin 30cm female/male            | Jumper wires for breadboard connections                   | Elektrokit (49 kr)|
 | Digital Temperature and Humidity Sensor DHT11(With pull-up resistor) | Measures temperature and humidity                        | Elektrokit (49 kr)                                                               |
 | Reed Switch Module Mini                 | Magnetic switch for detecting door open/close state       | Elektrokit (25 kr)                                                               |
 | Breadboard                              | Board for connecting electronic components                | Elektrokit (49 kr)                                                               |
-| 330 Ohm Resistors                    | Current limiting to keep the power bank active            | Elektrokit (included in the Start Kit - Applied IoT at Linnaeus University, 2024)|
+| Resistor carbon film 0.25W 330ohm  3x                | Current limiting to keep the power bank active            | Elektrokit (1*3 kr)|
+  |  Magnet Neo35 Ø5mm x 5mm                | Magnet for    Reed Switch Module Mini        | Elektrokit (11 kr )|
+  |  Jumper wires 40-pin 30cm male/male             | Jumper wires for breadboard connection      | Elektrokit (49 kr )|
+  
+
 ### Images
 
 
@@ -53,7 +57,7 @@ I chose to build this project to monitor the temperature and humidity in my room
 ### Circuit Diagram
 ![Alt text](https://github.com/transccc/iot-project/blob/main/Screenshot%202024-06-29%20002548.png)
 
-
+Additonaly use female to male wires to connect the reed-swish at an appropiate place for the magnet to detect the door closing 
 ### Electrical Calculations
 - I needed to add 3 extra 330 ohm resistors for the power bank to recognize the device as drawing power. These 3 resistors were added in parallel, as seen in the image above. 
 
