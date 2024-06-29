@@ -194,6 +194,8 @@ Follow these steps to download, install, and configure InfluxDB, and integrate i
      ```
      influxd
      ```
+    - or by simply running the .exe file directly
+
 
 3. **Access InfluxDB UI**:
    - Open your web browser and go to `http://localhost:8086`.
@@ -214,7 +216,8 @@ Follow these steps to download, install, and configure InfluxDB, and integrate i
      - **Bucket**: Enter the bucket name.
 
 - For more detailed instructions and troubleshooting, refer to the [InfluxDB Documentation](https://docs.influxdata.com/influxdb/v2.0/get-started/) and [Node-RED Documentation](https://nodered.org/docs/).
- 
+ ### Core functionalites of the code
+ - 
 
 ## Transmitting the Data / Connectivity
 ### Data Transmission Details
