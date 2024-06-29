@@ -83,17 +83,17 @@ This current draw is sufficient for the power bank to recognize the device as ac
 
 ## Platform
 ### Choice of Platform
-I used Node-Red and InfluxDB as the primary platforms for this project. Node-Red offers robust real-time data analysis and integration capabilities, along with active notifications. It provides a locally hosted platform with numerous solutions, enabling the creation of a comprehensive dashboard with the help of InfluxDB. The data is transmitted using a local MQTT broker (Mosquitto) for seamless integration with Node-Red.
+I used Node-Red and InfluxDB as the primary platforms for this project. Node-Red offers robust real-time data analysis and integration capabilities, along with active notifications. It provides a locally hosted platform with numerous solutions, enabling the creation of a comprehensive dashboard and data storage with the help of InfluxDB and direct HTTP POST requests to Pushbullet. The data is transmitted using a local MQTT broker (Mosquitto) for seamless integration with Node-Red. Initially, I considered using the Node-Red UI for visualization, but ultimately decided against it due to its inability to easily provide an aesthetically pleasing dashboard and adequate data storage capabilities.
+## The Code
+First of download [mosquitto](https://mosquitto.org/download/) 
+There after download 
 
-- **Local Setup:** Chosen for enhanced control and privacy, avoiding dependency on external cloud services.
-- **Free Services:** Utilized to keep costs low.
-- **Functionality:** Real-time data transmission, monitoring, customizable dashboards, and notifications via Pushbullet
 
 ## Transmitting the Data / Connectivity
 ### Data Transmission Details
 - **Data Frequency:** Sent every 3 seconds.
 - **Wireless Protocols:** WiFi for local transmission.
-- **Transport Protocols:** MQTT for efficient, low-overhead communication, HTTP to Pushbullet for realtime notfications. 
+- **Transport Protocols:** MQTT for efficient, low-overhead communication, HTTP to Pushbullet for real-time notfications. 
 
 ### Design Choices
 - **Data Transmission:** Chose MQTT for its lightweight protocol, suitable for IoT. Additionally, HTTP is used to send notifications to Pushbullet, ensuring timely alerts.
