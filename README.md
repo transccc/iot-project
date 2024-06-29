@@ -57,7 +57,7 @@ I chose to build this project to monitor the temperature and humidity in my room
 ### Circuit Diagram
 ![Alt text](https://github.com/transccc/iot-project/blob/main/Screenshot%202024-06-29%20002548.png)
 
-Additonaly use female to male wires to connect the reed-swish at an appropiate place for the magnet to detect the door closing 
+Additionally, use female-to-male wires to connect the reed switch at an appropriate location where the magnet can detect when the door is closed.
 ### Electrical Calculations
 - I needed to add 3 extra 330 ohm resistors for the power bank to recognize the device as drawing power. These 3 resistors were added in parallel, as seen in the image above. 
 
