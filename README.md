@@ -217,8 +217,29 @@ Follow these steps to download, install, and configure InfluxDB, and integrate i
 
 - For more detailed instructions and troubleshooting, refer to the [InfluxDB Documentation](https://docs.influxdata.com/influxdb/v2.0/get-started/) and [Node-RED Documentation](https://nodered.org/docs/).
  ### Core functionalites of the code
- - 
-
+The `main_loop()` function orchestrates the core operations of the device, including blinking the LED, checking the reed switch status, reading temperature and humidity from the DHT11 sensor, and publishing this data to an MQTT broker.
+```
+  while True:
+        try:
+            # Blink the LED to indicate the loop is running
+            led.on()
+            time.sleep(0.5)
+            led.off()
+            time.sleep(0.5)
+```
+The LED blinks on and off to indicate that the loop is running. This provides a visual confirmation that the device is active.
+python
+```
+            current_reed_status = read_reed_switch()
+            reed_status = "50" if current_reed_status else "0"
+```
+The function read_reed_switch() is called to check the current status of the reed switch. The reed_status is set to "50" if the reed switch is active (door open) and "0" if it is inactive (door closed).
+```
+dht11.measure()
+            temperature_dht11 = dht11.temperature()
+            humidity_dht11 = dht11.humidity()
+```
+The dht11.measure() function reads the current temperature and humidity values from the DHT11 sensor. The values are stored in temperature_dht11 and humidity_dht11.
 ## Transmitting the Data / Connectivity
 ### Data Transmission Details
 - **Data Frequency:** Sent every 3 seconds.
