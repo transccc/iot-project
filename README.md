@@ -85,9 +85,22 @@ This current draw is sufficient for the power bank to recognize the device as ac
 ### Choice of Platform
 I used Node-Red and InfluxDB as the primary platforms for this project. Node-Red offers robust real-time data analysis and integration capabilities, along with active notifications. It provides a locally hosted platform with numerous solutions, enabling the creation of a comprehensive dashboard and data storage with the help of InfluxDB and direct HTTP POST requests to Pushbullet. The data is transmitted using a local MQTT broker (Mosquitto) for seamless integration with Node-Red. Initially, I considered using the Node-Red UI for visualization, but ultimately decided against it due to its inability to easily provide an aesthetically pleasing dashboard and adequate data storage capabilities.
 ## The Code
-First of download [mosquitto](https://mosquitto.org/download/) 
-There after download 
 
+First, download [Mosquitto](https://mosquitto.org/download/).
+
+After downloading, locate the `mosquitto.conf` file in the newly created Mosquitto folder and add the following lines at the end:
+
+```
+listener 1883
+allow_anonymous false
+password_file C:\Program Files\Mosquitto\passwd
+```
+Next, install Node-RED by running the following command in the Command Prompt:
+
+```
+npm install -g --unsafe-perm node-red
+```
+After this, you can easily download the provided bash script [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script). This script allows you to seamlessly start up Mosquitto and Node-RED by providing a username, password, and topic, which you also define in "localhost:1880" when creating the MQTT in node.
 
 ## Transmitting the Data / Connectivity
 ### Data Transmission Details
