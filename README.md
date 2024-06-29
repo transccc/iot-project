@@ -28,13 +28,11 @@ I chose to build this project to monitor the temperature and humidity in my room
 ### Images
 
 
-## Computer Setup
-### Chosen IDE
-- **IDE:** VSCode with MicroPython
 
 ## Computer Setup
 ### Chosen IDE
-- **IDE:** VSCode with MicroPython
+- - **IDE:** VSCode for its user-friendly interface and its many features, along with my prior experience using it.
+
 
 ### Steps for Computer Setup
 1. **Flashing Firmware:**
