@@ -51,7 +51,6 @@ I chose to build this project to monitor the temperature and humidity in my room
      - Create a folder and then select "Use this folder". A window will appear asking for the project name. Enter your desired project name, then select "empty" when asked for a template.
      - Click "Add Device" located under the empty project in the Pymakr tab, then select your device and click "OK".
      - Selecting the lighting icon and then selecting development mode in Pymakr will now automatically upload the files to the device.
-   - Install Node-Red, Mosquitto, and InfluxDB.
 ## Putting Everything Together
 ### Circuit Diagram
 ![Alt text](https://github.com/transccc/iot-project/blob/main/Screenshot%202024-06-29%20002548.png)
