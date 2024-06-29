@@ -270,6 +270,9 @@ print('Connected on {}'.format(wlan.ifconfig()[0]))
 Gives the ip adress of the Pico in the network 
 <br>
 <br>
+Wi-Fi provides a fast and easy connection between devices and is a convenient solution for this project, as it was easy to set up and required no extra parts. The obvious disadvantage of Wi-Fi is its limited range; this project can only effectively work at a fixed location close to a router. Wi-Fi also consumes a significant amount of battery power compared to solutions like LoRa. However, both of these are not issues for the current setup, as it involves a door, which is most likely near a router and someone who can replace and charge the power bank. However, for different projects using only a DHT11 sensor, this is a clear disadvantage.
+<br>
+<br>
 As previously seen in the code section, MQTT is used to transmit data to a broker, specifically a local broker using Mosquitto. This process involves connecting to Wi-Fi and then to the MQTT broker on the local host. The client publishes messages to this broker in the form of a JSON payload.
 
 The payload includes temperature, humidity, and reed switch status data:
@@ -292,8 +295,6 @@ This JSON payload is then published to the MQTT broker as follows:
 ```
 The broker manages topics, and clients subscribe to get messages. In this project, both Node-RED and the Pico subscribe to the main topic. When the Pico sends a message, the local Mosquitto broker makes sure Node-RED gets it. Node-RED then handles the message. The data from the Pico is in JSON format, with readings from the DHT11 sensor (temperature and humidity) and the status of the reed switch. These JSON messages are sent every three seconds. MQTT handles real-time data, key for apps needing quick updates and responses. Using a local broker like Mosquitto boosts security and cuts latency as the data stays in the local network. This setup is also higly customisable  Node-RED receives the data from the Pico and processes this information in various ways. For instance, Node-RED can redirect the incoming data to InfluxDB for storage and visualization, allowing for analysis and monitoring of the sensor data over time and in real-time. Node-RED can also send real-time notifications via HTTP post requests to Pushbullet, providing alerts about whether the door is open. This versatility is the key reason for the usage of node-red, all locally hosted, quick and analysable 
 
-- **Wireless Protocols:** WiFi for local transmission.
-- **Transport Protocols:** MQTT for efficient, low-overhead communication, HTTP to Pushbullet for real-time notfications. 
 
 ### Design Choices
 - **Data Transmission:** Chose MQTT for its lightweight protocol, suitable for IoT. Additionally, HTTP is used to send notifications to Pushbullet, ensuring timely alerts.
@@ -326,24 +327,11 @@ Follow these steps to set up and customize a dashboard in InfluxDB to visualize 
 6. **Visualize Data**:
    - Adjust the settings as necessary to optimize the visualization.
    - You should now see a graph displaying temperature data over time.
+   
 ### Dashboard
 - **Visualization:** InfluxDB dashboard showing real-time temperature, humidity and reed switch data.
 - **Data Storage:** Data saved in InfluxDB, preserved indefinitely for historical analysis.
 - **Database Choice:** InfluxDB chosen for its time-series data handling capabilities and dashboard functionality.
 - **Automation:** Alerts and triggers set up when the door opens. Node-Red automatically sends HTTP POST requests to Pushbullet for real-time notifications when the door opens and closes.
-## Implementation Details
-Initially, I used the MQTT broker and set it up to start first in a batch file. This allows the localhost to easily open both Node-Red and the broker, and it also creates a topic.
 
-This setup, however, did not solve the issue regarding the client startup with the sensors, which I decided to handle manually. I configured Node-Red to create a graph, aiming for consistency despite the unstable internet connection for my Pico. I also added a collision sensor to measure temperature and detect if the door closes.
-
-The collision sensor was used because I lacked a strong enough magnet for a magnetic sensor. I realized that the collision sensor only sent one signal and would need separate threading to detect movement, leading to program inconsistencies. Due to my inexperience with multithreading, this likely corrupted the files, making the program unable to run.
-
-After a hard reset, I switched to using a magnet, which worked. I had initially assumed the magnet was too weak due to a minor mistake. Removing the collision sensor also reduced power consumption and potential failure points.
-
-I figured out that MQTT connection inconsistency might be due to ID conflicts when the program is already running with a connected ID. The broker maintains the session if the device is already connected. A duplicate connection attempt with the same client ID may be refused. Reconnecting after unplugging and replugging the device resolves the conflict.
-
-Additionally, I realized I forgot to use `sys.exit()`, which helped terminate running instances, allowing the program to run as intended and consistently connect to the MQTT broker. Using the magnet avoided multithreading issues, though it didn't entirely resolve the MQTT problems, it was still an improvement.
-
-Using JSON packages and debug nodes, I was able to print the following results:
-### Different Platforms Discussed
 
