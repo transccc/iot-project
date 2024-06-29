@@ -207,6 +207,21 @@ Follow these steps to download, install, and configure InfluxDB, and integrate i
      - **Token**: Enter the API token you generated.
      - **Organization**: Enter the organization name.
      - **Bucket**: Enter the bucket name.
+
+- For more detailed instructions and troubleshooting, refer to the [InfluxDB Documentation](https://docs.influxdata.com/influxdb/v2.0/get-started/) and [Node-RED Documentation](https://nodered.org/docs/).
+ 
+
+## Transmitting the Data / Connectivity
+### Data Transmission Details
+- **Data Frequency:** Sent every 3 seconds.
+- **Wireless Protocols:** WiFi for local transmission.
+- **Transport Protocols:** MQTT for efficient, low-overhead communication, HTTP to Pushbullet for real-time notfications. 
+
+### Design Choices
+- **Data Transmission:** Chose MQTT for its lightweight protocol, suitable for IoT. Additionally, HTTP is used to send notifications to Pushbullet, ensuring timely alerts.
+- **Wireless Protocols:** WiFi provides sufficient range and speed for this application, considering the local environment.
+
+## Presenting the Data
 ### Configuring a Dashboard in InfluxDB
 
 Follow these steps to set up and customize a dashboard in InfluxDB to visualize your sensor data:
@@ -233,20 +248,6 @@ Follow these steps to set up and customize a dashboard in InfluxDB to visualize 
 6. **Visualize Data**:
    - Adjust the settings as necessary to optimize the visualization.
    - You should now see a graph displaying temperature data over time.
-- For more detailed instructions and troubleshooting, refer to the [InfluxDB Documentation](https://docs.influxdata.com/influxdb/v2.0/get-started/) and [Node-RED Documentation](https://nodered.org/docs/).
- 
-
-## Transmitting the Data / Connectivity
-### Data Transmission Details
-- **Data Frequency:** Sent every 3 seconds.
-- **Wireless Protocols:** WiFi for local transmission.
-- **Transport Protocols:** MQTT for efficient, low-overhead communication, HTTP to Pushbullet for real-time notfications. 
-
-### Design Choices
-- **Data Transmission:** Chose MQTT for its lightweight protocol, suitable for IoT. Additionally, HTTP is used to send notifications to Pushbullet, ensuring timely alerts.
-- **Wireless Protocols:** WiFi provides sufficient range and speed for this application, considering the local environment.
-
-## Presenting the Data
 ### Dashboard
 - **Visualization:** InfluxDB dashboard showing real-time temperature, humidity and reed switch data.
 - **Data Storage:** Data saved in InfluxDB, preserved indefinitely for historical analysis.
