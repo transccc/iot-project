@@ -79,7 +79,9 @@ I chose to build this project to monitor the temperature and humidity in my room
 
   $I = \frac{V}{R} = \frac{5V}{110 \, \Omega} \approx 45.45 \ mA$
 
-  This current draw is sufficient for the power bank to recognize the device as active and continuously supply power. As the current supplied by the powerbank was max 2 A. 
+This current draw is sufficient for the power bank to recognize the device as active and continuously supply power. Additionally, given the voltage, the power dissipation across the resistors is well within safe limits, preventing any risk of damage. The power bank can supply a maximum current of 2 A, which is more than adequate for this setup.
+
+
 
 
 
