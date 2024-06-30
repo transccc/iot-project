@@ -352,7 +352,7 @@ Overall, I was satisfied with the project. I did not foresee it going this far, 
                 <div class="caption">Setup with part of a plastic bottle as a container for the breadboard and a reed switch on the door next to a neodymium magnet, the power bank is taped onto the plastic bottle.</div>
             </td>
             <td>
-                <img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_232829722.jpg" alt="Alt text 2" height="450"/>
+                <img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_232829722.jpg" alt="Alt text 2" height="500"/>
                 <div class="caption">Wiring of the breadboard that is inside the bottle</div>
             </td>
             <td>
