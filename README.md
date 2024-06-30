@@ -36,7 +36,7 @@ I chose to build this project to monitor the temperature and humidity in my room
 
 ## Computer Setup
 ### Chosen IDE
-- - **IDE:** VSCode for its user-friendly interface and its many features, along with my prior experience using it.
+-  **IDE:** VSCode for its user-friendly interface and its many features, along with my prior experience using it.
 
 
 ### Steps for Computer Setup
