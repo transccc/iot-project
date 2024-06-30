@@ -336,4 +336,4 @@ I chose InfluxDB because of its strength in time series. It can easily save data
 Overall, I was satisfied with the project. I did not foresee it going this far, including building out extra features like alerts or even setting up Mosquitto properly. It has been valuable for me, as I've tried building similar locally hosted servers but never managed to finalize the design I was aiming for. For future projects, it would be preferable to use Grafana for a better UI and alert system, which was primarily solved with ad hoc solutions this time due to the project unfolding rather than being planned from the beginning. If it weren't for the lack of a LoRa module, I would have likely implemented that instead, using a Helium network or something similar, which would have been more enjoyable for me, as I enjoy decentralized networks. 
 
 
-
+![Alt text](https://github.com/transccc/iot-project/blob/main/Sk%C3%A4rmbild%202024-06-30%20033916.png)
