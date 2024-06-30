@@ -27,6 +27,7 @@ I chose to build this project to monitor the temperature and humidity in my room
 | Resistor carbon film 0.25W 330ohm  3x                | Current limiting to keep the power bank active            | Elektrokit (1*3 kr)|
   |  Magnet Neo35 Ø5mm x 5mm                | Magnet for    Reed Switch Module Mini        | Elektrokit (11 kr )|
   |  Jumper wires 40-pin 30cm male/male             | Jumper wires for breadboard connection      | Elektrokit (49 kr )|
+  |  Power bank            | Power source     | Depends|
   
 
 ### Images
