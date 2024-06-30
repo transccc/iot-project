@@ -327,7 +327,7 @@ Follow these steps to set up and customize a dashboard in InfluxDB to visualize 
 6. **Visualize Data**:
    - Adjust the settings as necessary to optimize the visualization.
    - You should now see a graph displaying temperature data over time.
-   
+![Alt text](https://github.com/transccc/iot-project/blob/main/Sk%C3%A4rmbild%202024-06-30%20033916.png)
 ### InfluxDB
 I chose InfluxDB because of its strength in time series. It can easily save data over a period for later visual analysis. This is done by observing how the graphs change, especially regarding whether the door was open and the room's climate. The UI can also be designed without necessarily knowing how to write Flux. On the other hand, the data-saving abilities sometimes made it difficult to make changes, as new data would conflict with previous readings. This largely made me choose to do the HTTP post request in Node-RED instead of InfluxDB, as I had similar issues before. For the notification automation process, I went straight to Node-RED to set up the HTTP post to Pushbullet. This is not well integrated, and the project would work just fine without it. Still, I wanted to have an automatic component in my project. InfluxDB has options for this, but I failed to implement them.
 - Data is saved indefinitely in customizable increments. I used 1 minute, a change in the UI is all what is needed to change it. 
@@ -336,4 +336,5 @@ I chose InfluxDB because of its strength in time series. It can easily save data
 Overall, I was satisfied with the project. I did not foresee it going this far, including building out extra features like alerts or even setting up Mosquitto properly. It has been valuable for me, as I've tried building similar locally hosted servers but never managed to finalize the design I was aiming for. For future projects, it would be preferable to use Grafana for a better UI and alert system, which was primarily solved with ad hoc solutions this time due to the project unfolding rather than being planned from the beginning. If it weren't for the lack of a LoRa module, I would have likely implemented that instead, using a Helium network or something similar, which would have been more enjoyable for me, as I enjoy decentralized networks. 
 
 
-![Alt text](https://github.com/transccc/iot-project/blob/main/Sk%C3%A4rmbild%202024-06-30%20033916.png)
+
+![Alt text](https://github.com/transccc/iot-project/blob/main/PXL_20240629_053358524.jpg)
