@@ -328,14 +328,13 @@ Follow these steps to set up and customize a dashboard in InfluxDB to visualize 
    - Adjust the settings as necessary to optimize the visualization.
    - You should now see a graph displaying temperature data over time.
    
-### Why influx
-I chose InfluxDB because of its strength in time series. It can easily save data over a period for later visual analysis. This is done by observing how the graphs change, especially regarding whether the door was open and the room's climate. The UI can also be designed without necessarily knowing how to write Flux. On the other hand, the data-saving abilities sometimes made it difficult to make changes, as new data would conflict with previous readings. 
-- **Visualization:** InfluxDB dashboard showing real-time temperature, humidity and reed switch data. 
-- **Data Storage:** Data saved in InfluxDB, preserved indefinitely for historical analysis.
-- **Database Choice:** InfluxDB chosen for its time-series data handling capabilities and dashboard functionality.
-- **Automation:** Alerts and triggers set up when the door opens. Node-Red automatically sends HTTP POST requests to Pushbullet for real-time notifications when the door opens and closes.
+### InfluxDB
+I chose InfluxDB because of its strength in time series. It can easily save data over a period for later visual analysis. This is done by observing how the graphs change, especially regarding whether the door was open and the room's climate. The UI can also be designed without necessarily knowing how to write Flux. On the other hand, the data-saving abilities sometimes made it difficult to make changes, as new data would conflict with previous readings. This largely made me choose to do the HTTP post request in Node-RED instead of InfluxDB, as I had similar issues before. For the notification automation process, I went straight to Node-RED to set up the HTTP post to Pushbullet. This is not well integrated, and the project would work just fine without it. Still, I wanted to have an automatic component in my project. InfluxDB has options for this, but I failed to implement them.
+- Data is saved indefinitely in customizable increments. I used 1 minute, a change in the UI is all what is needed to change it. 
 
-## Presenting the Data
+## Finalizing the design
+
+
 
 
 
