@@ -340,19 +340,20 @@ Overall, I was satisfied with the project. I did not foresee it going this far, 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-   
-    
- 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
-    <table>
+    <table align="center">
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_053358524.jpg" alt="Alt text 1" height="500"/>
+                <div class="caption">Setup with part of a plastic bottle as a container for the breadboard and a reed switch on the door next to a neodymium magnet. The power bank is taped onto the plastic bottle and connected with the Pico through a hole in the back of the bottle.</div>
+            </td>
+        </tr>
         <tr>
             <td>
-                <img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_053358524.jpg" alt="Alt text 1" height="500"/>
-                <div class="caption">Setup with part of a plastic bottle as a container for the breadboard and a reed switch on the door next to a neodymium magnet. The power bank is taped onto the plastic bottle and connected with the Pico trough a hole in the back of the bottle.</div>
-            </td>
-            <td>
-                <img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_232829722.jpg" alt="Alt text 2" width="1000" height="500/>
+                <img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_232829722.jpg" alt="Alt text 2" width="500" height="500"/>
                 <div class="caption">Wiring of the breadboard that is inside the bottle</div>
             </td>
             <td>
@@ -363,4 +364,3 @@ Overall, I was satisfied with the project. I did not foresee it going this far, 
     </table>
 </body>
 </html>
-
