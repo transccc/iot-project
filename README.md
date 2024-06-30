@@ -336,13 +336,31 @@ I chose InfluxDB because of its strength in time series. It can easily save data
 ## Finalizing the design
 Overall, I was satisfied with the project. I did not foresee it going this far, including building out extra features like alerts or even setting up Mosquitto properly. It has been valuable for me, as I've tried building similar locally hosted servers but never managed to finalize the design I was aiming for. For future projects, it would be preferable to use Grafana for a better UI and alert system, which was primarily solved with ad hoc solutions this time due to the project unfolding rather than being planned from the beginning. If it weren't for the lack of a LoRa module, I would have likely implemented that instead, using a Helium network or something similar, which would have been more enjoyable for me, as I enjoy decentralized networks. 
 
-
-
-<table>
-  <tr>
-    <td><img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_053358524.jpg" alt="Alt text 1" height="400"/></td>
-    <td><img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_232829722.jpg" alt="Alt text 2" height="400"/></td>
-     <td><img src="https://github.com/transccc/iot-project/blob/main/Screenshot_20240630-041643.png" alt="Alt text 2" height="400"/></td>
-  </tr>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    
+ 
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_053358524.jpg" alt="Alt text 1" height="500"/>
+                <div class="caption">Setup with part of a plastic bottle as a container for the breadboard and a reed switch on the door next to a neodymium magnet, the power bank is taped onto the plastic bottle.</div>
+            </td>
+            <td>
+                <img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_232829722.jpg" alt="Alt text 2" height="350"/>
+                <div class="caption">Wiring of the breadboard that is inside the bottle</div>
+            </td>
+            <td>
+                <img src="https://github.com/transccc/iot-project/blob/main/Pushbullet1643.png" alt="Alt text 3" height="400"/>
+                <div class="caption">Pushbullet notifications when opening/closing the door</div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
 
