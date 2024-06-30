@@ -48,10 +48,10 @@ def main_loop():
                 "humidity": humidity_dht11,
                 "reed_status": reed_status
             }
-            payload_json = ujson.dumps(payload)
+            payload_json = ujson.dumps(payload)  # Convert payload to JSON string 
             
             if boot.client:
-                boot.client.publish('main', payload_json)
+                boot.client.publish('main', payload_json) # Publish the payload 
                 print("Published:", payload_json)
             else:
                 print("MQTT client is not initialized")
@@ -63,7 +63,7 @@ def main_loop():
         time.sleep(2)
 
 try:
-    if boot.client:
+    if boot.client:     # Connect to MQTT client and start the main loop
         boot.client.connect()
         main_loop()
     else:
