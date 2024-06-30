@@ -30,7 +30,7 @@ I chose to build this project to monitor the temperature and humidity in my room
   |  Power bank            | Power source     | Depends|
   
 
-### Images
+
 
 
 
