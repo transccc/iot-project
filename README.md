@@ -349,7 +349,7 @@ Overall, I was satisfied with the project. I did not foresee it going this far, 
         <tr>
             <td>
                 <img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_053358524.jpg" alt="Alt text 1" height="500"/>
-                <div class="caption">Setup with part of a plastic bottle as a container for the breadboard and a reed switch on the door next to a neodymium magnet. The power bank is taped onto the plastic bottle and connected with the Pico trough ahole in the back of the bottle .</div>
+                <div class="caption">Setup with part of a plastic bottle as a container for the breadboard and a reed switch on the door next to a neodymium magnet. The power bank is taped onto the plastic bottle and connected with the Pico trough a hole in the back of the bottle .</div>
             </td>
             <td>
                 <img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_232829722.jpg" alt="Alt text 2" width="750" height="500/>
