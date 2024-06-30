@@ -341,6 +341,7 @@ Overall, I was satisfied with the project. I did not foresee it going this far, 
   <tr>
     <td><img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_053358524.jpg" alt="Alt text 1" height="400"/></td>
     <td><img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_232829722.jpg" alt="Alt text 2" height="400"/></td>
+     <td><img src="https://github.com/transccc/iot-project/blob/main/Screenshot_20240630-041643.png" alt="Alt text 2" height="400"/></td>
   </tr>
 </table>
 
