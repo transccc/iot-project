@@ -1,5 +1,5 @@
 # Smart Door + 2
-Per Karlsson Kremer pk222yh
+**Author**: Per Karlsson Kremer pk222yh
 
 
 ## Project Overview
