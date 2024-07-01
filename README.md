@@ -3,7 +3,7 @@
 
 
 ## Project Overview
-Smart Door + 2 is a project that uses local hosting for real-time analysis of temperature, humidity, and door status. It provides both historical data overview and real-time notifications about the status of a door and its historical status in relation to temperature. The purpose of the project is to monitor the insulation of a room, particularly through the status of one door, and to provide real-time updates about that door. It incorporates humidity as a data point to allow for the analysis of other factors, such as whether a window was opened, without directly monitoring the windows.
+Smart Door + 2 is a project that uses local hosting for real-time analysis of temperature, humidity, and door status. It provides both historical data overview and real-time push notifications about the status of a door and its historical status in relation to temperature. The purpose of the project is to monitor the insulation of a room, particularly through the status of one door, and to provide real-time updates about that door. It incorporates humidity as a data point to allow for the analysis of other factors, such as whether a window was opened, without directly monitoring the windows.
 .
 
 
@@ -11,7 +11,7 @@ Smart Door + 2 is a project that uses local hosting for real-time analysis of te
  **Total Time Estimate**: 10-20 hours. Due to the local hosting nature of this project, the actual time required can vary significantly based on skill level and the number of issues encountered, which may not be covered in this tutorial.
 
 ## Objective
-I chose to build this project to monitor the temperature and humidity in my room. The project aims to collect data about the room's climate  and analyze how these conditions are influenced by air exchange between my room and the rest of the house. The analysis of that can hence provide insight into the room's insulation, which often causes the temperatures in my room to exceed those outside or in other parts of the house. Additionally, the design includes real-time updates, allowing me to receive notifications about whether the door to my room is open. I used a locally hosted platform because I wanted to learn more about networks and Node-Red. Although the project does not create a multi-client MQTT network, it still a good start. 
+I chose to build this project to monitor the temperature and humidity in my room. The project aims to collect data about the room's climate  and analyze how these conditions are influenced by air exchange between my room and the rest of the house. The analysis of that can hence provide insight into the room's insulation, which often causes the temperatures in my room to exceed those outside or in other parts of the house. Additionally, the design includes real-time updates, allowing me to receive push notifications about whether the door to my room is open. I used a locally hosted platform because I wanted to learn more about networks and Node-Red. Although the project does not create a multi-client MQTT network, it still a good start. 
 
 
 ## Material
@@ -164,9 +164,9 @@ Configure Node-RED to work with your MQTT setup:
 - **Configure the MQTT Input Node**:
   - Locate the MQTT input node in the imported flow, double-click to edit its properties, and update the username, password, and topic fields to match the values provided in the bash script.
 
-### 5. Set Up Notifications via HTTP Request in Node-RED
+### 5. Set Up push notifications via HTTP Request in Node-RED
 
-To enable notifications, you will use Pushbullet to send messages. Follow these steps:
+To enable push notifications, you will use Pushbullet to send messages. Follow these steps:
 
 - **Create a Pushbullet Account**:
   - Go to the [Pushbullet website](https://www.pushbullet.com/).
@@ -174,14 +174,14 @@ To enable notifications, you will use Pushbullet to send messages. Follow these 
 - **Generate a Pushbullet Token**:
   - Once logged in, navigate to your account settings.
   - Generate an access token. This token will be used to authenticate your requests.
-- **Configure Node-RED for Pushbullet Notifications**:
+- **Configure Node-RED for Pushbullet push notifications**:
   - In Node-RED, add go to the Door open functions 
 
   - Use the following command:
     ```
     curl -u "YOUR_ACCESS_TOKEN_HERE:" https://api.pushbullet.com/v2/users/me
     ```
-    This will provide the necessary information to fill out the notification functions in node-red.
+    This will provide the necessary information to fill out the push notification functions in node-red.
 ### Setting Up InfluxDB
 
 Follow these steps to download, install, and configure InfluxDB, and integrate it with Node-RED:
@@ -294,11 +294,11 @@ This JSON payload is then published to the MQTT broker as follows:
             else:
                 print("MQTT client is not initialized")
 ```
-The broker manages topics, and clients subscribe to get messages. In this project, both Node-RED and the Pico subscribe to the main topic. When the Pico sends a message, the local Mosquitto broker makes sure Node-RED gets it. Node-RED then handles the message. The data from the Pico is in JSON format, with readings from the DHT11 sensor (temperature and humidity) and the status of the reed switch. These JSON messages are sent every three seconds. MQTT handles real-time data, key for apps needing quick updates and responses. Using a local broker like Mosquitto boosts security and cuts latency as the data stays in the local network. This setup is also higly customisable  Node-RED receives the data from the Pico and processes this information in various ways. For instance, Node-RED can redirect the incoming data to InfluxDB for storage and visualization, allowing for analysis and monitoring of the sensor data over time and in real-time. Node-RED can also send real-time notifications via HTTP post requests to Pushbullet, providing alerts about whether the door is open. This versatility is the key reason for the usage of node-red, all locally hosted, quick and analysable 
+The broker manages topics, and clients subscribe to get messages. In this project, both Node-RED and the Pico subscribe to the main topic. When the Pico sends a message, the local Mosquitto broker makes sure Node-RED gets it. Node-RED then handles the message. The data from the Pico is in JSON format, with readings from the DHT11 sensor (temperature and humidity) and the status of the reed switch. These JSON messages are sent every three seconds. MQTT handles real-time data, key for apps needing quick updates and responses. Using a local broker like Mosquitto boosts security and cuts latency as the data stays in the local network. This setup is also higly customisable  Node-RED receives the data from the Pico and processes this information in various ways. For instance, Node-RED can redirect the incoming data to InfluxDB for storage and visualization, allowing for analysis and monitoring of the sensor data over time and in real-time. Node-RED can also send real-time push notifications via HTTP post requests to Pushbullet, providing alerts about whether the door is open. This versatility is the key reason for the usage of node-red, all locally hosted, quick and analysable 
 
 
 ### Design Choices
-- **Data Transmission:** Chose MQTT for its lightweight protocol, suitable for IoT. Additionally, HTTP is used to send notifications to Pushbullet, ensuring timely alerts.
+- **Data Transmission:** Chose MQTT for its lightweight protocol, suitable for IoT. Additionally, HTTP is used to send push notifications to Pushbullet, ensuring timely alerts.
 - **Wireless Protocols:** WiFi provides sufficient range and speed for this application, considering the local environment.
 
 ## Presenting the Data
@@ -330,7 +330,7 @@ Follow these steps to set up and customize a dashboard in InfluxDB to visualize 
    - You should now see a graph displaying temperature data over time.
 ![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Sk%C3%A4rmbild%202024-06-30%20033916.png)
 ### InfluxDB
-I chose InfluxDB because of its strength in time series. It can easily save data over a period for later visual analysis. This is done by observing how the graphs change, especially regarding whether the door was open and the room's climate. The UI can also be designed without necessarily knowing how to write Flux. On the other hand, the data-saving abilities sometimes made it difficult to make changes, as new data would conflict with previous readings. This largely made me choose to do the HTTP post request in Node-RED instead of InfluxDB, as I had similar issues before. For the notification automation process, I went straight to Node-RED to set up the HTTP post to Pushbullet. This is not well integrated, and the project would work just fine without it. Still, I wanted to have an automatic component in my project. InfluxDB has options for this, but I failed to implement them.
+I chose InfluxDB because of its strength in time series. It can easily save data over a period for later visual analysis. This is done by observing how the graphs change, especially regarding whether the door was open and the room's climate. The UI can also be designed without necessarily knowing how to write Flux. On the other hand, the data-saving abilities sometimes made it difficult to make changes, as new data would conflict with previous readings. This largely made me choose to do the HTTP post request in Node-RED instead of InfluxDB, as I had similar issues before. For the push notification automation process, I went straight to Node-RED to set up the HTTP post to Pushbullet. This is not well integrated, and the project would work just fine without it. Still, I wanted to have an automatic component in my project. InfluxDB has options for this, but I failed to implement them.
 - Data is saved indefinitely in customizable increments. I used 1 minute, a change in the UI is all what is needed to change it. 
 
 ## Finalizing the design
@@ -358,7 +358,7 @@ Overall, I was satisfied with the project. I did not foresee it going this far, 
             </td>
             <td>
                 <img src="https://github.com/transccc/iot-project/blob/main/pictures/Pushbulletscreen.png" alt="Alt text 3" height="500"/>
-                <div class="caption">Pushbullet notifications when opening/closing the door</div>
+                <div class="caption">Pushbullet push notifications when opening/closing the door</div>
             </td>
         </tr>
     </table>
