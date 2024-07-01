@@ -56,7 +56,7 @@ I chose to build this project to monitor the temperature and humidity in my room
      - Selecting the lighting icon and then selecting development mode in Pymakr will now automatically upload the files to the device.
 ## Putting Everything Together
 ### Circuit Diagram
-![Alt text](https://github.com/transccc/iot-project/blob/main/Screenshot%202024-06-29%20002548.png)
+![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Screenshot%202024-06-29%20002548.png)
 
 Additionally, use female-to-male wires to connect the reed switch at an appropriate location where the magnet can detect when the door is closed.
 ### Electrical Calculations
@@ -328,7 +328,7 @@ Follow these steps to set up and customize a dashboard in InfluxDB to visualize 
 6. **Visualize Data**:
    - Adjust the settings as necessary to optimize the visualization.
    - You should now see a graph displaying temperature data over time.
-![Alt text](https://github.com/transccc/iot-project/blob/main/Sk%C3%A4rmbild%202024-06-30%20033916.png)
+![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Sk%C3%A4rmbild%202024-06-30%20033916.png)
 ### InfluxDB
 I chose InfluxDB because of its strength in time series. It can easily save data over a period for later visual analysis. This is done by observing how the graphs change, especially regarding whether the door was open and the room's climate. The UI can also be designed without necessarily knowing how to write Flux. On the other hand, the data-saving abilities sometimes made it difficult to make changes, as new data would conflict with previous readings. This largely made me choose to do the HTTP post request in Node-RED instead of InfluxDB, as I had similar issues before. For the notification automation process, I went straight to Node-RED to set up the HTTP post to Pushbullet. This is not well integrated, and the project would work just fine without it. Still, I wanted to have an automatic component in my project. InfluxDB has options for this, but I failed to implement them.
 - Data is saved indefinitely in customizable increments. I used 1 minute, a change in the UI is all what is needed to change it. 
@@ -347,17 +347,17 @@ Overall, I was satisfied with the project. I did not foresee it going this far, 
     <table align="center">
         <tr>
             <td colspan="2" style="text-align: center;">
-                <img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_053358524.jpg" alt="Alt text 1" height="500"/>
+                <img src="https://github.com/transccc/iot-project/blob/main/pictures/%20PXL_20240629_053358524.jpg" alt="Alt text 1" height="500"/>
                 <div class="caption">Setup with part of a plastic bottle as a container for the breadboard and a reed switch on the door next to a neodymium magnet. The power bank is taped onto the plastic bottle and connected with the Pico through a hole in the back of the bottle.</div>
             </td>
         </tr>
         <tr>
             <td>
-                <img src="https://github.com/transccc/iot-project/blob/main/PXL_20240629_232829722.jpg" alt="Alt text 2" width="500" height="500"/>
+                <img src="https://github.com/transccc/iot-project/blob/main/pictures/PXL_20240629_232829722.jpg" alt="Alt text 2" width="500" height="500"/>
                 <div class="caption">Wiring of the breadboard that is inside the bottle</div>
             </td>
             <td>
-                <img src="https://github.com/transccc/iot-project/blob/main/Pushbullet1643.png" alt="Alt text 3" height="500"/>
+                <img src="https://github.com/transccc/iot-project/blob/main/pictures/Pushbulletscreen.png" alt="Alt text 3" height="500"/>
                 <div class="caption">Pushbullet notifications when opening/closing the door</div>
             </td>
         </tr>
