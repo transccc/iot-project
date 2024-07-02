@@ -152,7 +152,7 @@ After this, you can easily download the provided bash script [here](https://gith
     ```
     bash mosquitto_bash_script.sh
     ```
-  - The script will prompt you to enter a username, password, and topic. Note these details as they will be needed later.
+  - The script will prompt you to enter a username, password, and topic. That is MQTT_USER, MQTT_PASS, and topic "main". This creates the broker on your local machine. 
 
 ### 4. Set Up Node-RED
 
