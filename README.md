@@ -8,7 +8,7 @@ Smart Door + 2 is a project that uses local hosting for real-time analysis of te
 
 
 
- **Total Time Estimate**: 10-20 hours. Due to the local hosting nature of this project, the actual time required can vary significantly based on skill level and the number of issues encountered, which may not be covered in this tutorial.
+ **Total Time Estimate**: 5-15 hours. Due to the local hosting nature of this project, the actual time required can vary significantly based on skill level and the number of issues encountered, which may not be covered in this tutorial.
 
 **OS**: Windows 11
 
