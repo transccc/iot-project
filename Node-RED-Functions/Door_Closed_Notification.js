@@ -3,7 +3,7 @@ msg.headers = {
     "Content-Type": "application/json",
     "Authorization": "Bearer your_token"
 };
-// JSON payload for the HTTP request to Pushbullet API, include information obtained from the curl command
+// JSON payload for the HTTP request to Pushbullet API, include information obtained from the curl command/the body
 msg.payload = {
     "active": true,
     "iden": "your_token",
