@@ -207,7 +207,7 @@ To enable push notifications, you will use Pushbullet to send messages. Follow t
    - Select the appropriate version for your operating system and follow the instructions to download and install InfluxDB.
 
 2. **Launch InfluxDB**:
-   - Start InfluxDB by running the appropriate command for your operating system. For example, on Windows:
+   - Start InfluxDB:
      ```
      influxd
      ```
@@ -216,7 +216,7 @@ To enable push notifications, you will use Pushbullet to send messages. Follow t
 
 3. **Access InfluxDB UI**:
    - Open your web browser and go to http://localhost:8086.
-   - Follow the on-screen instructions to set up your InfluxDB instance.
+   - Follow the on-screen instructions to set up InfluxDB.
 
 4. **Create an Account and Configure InfluxDB**:
    - Create an account by providing the necessary details.
