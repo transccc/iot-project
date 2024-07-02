@@ -171,7 +171,7 @@ npm install -g --unsafe-perm node-red
 
 After this, you can  download the bash script [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script.bat)(You should also have it in the "iot-project-main" folder if you downloaded the repository). This script allows you to start up Mosquitto and Node-RED easily. 
 - **Run the script**
-
+- ⚠️ If on windows 10 this may not work, start them both manually
 ### 4. Set Up Node-RED
 
 Configure Node-RED to work with your MQTT setup:
