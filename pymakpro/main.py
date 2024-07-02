@@ -42,13 +42,13 @@ def main_loop():
             humidity_dht11 = dht11.humidity()
             print(f"DHT11 Temperature: {temperature_dht11} °C, Humidity: {humidity_dht11}%, Reed Status: {reed_status}")
             
-            # JSON payload
+            # Dictionary to be JSON payload
             payload = {
                 "temperature": temperature_dht11,
                 "humidity": humidity_dht11,
                 "reed_status": reed_status
             }
-            payload_json = ujson.dumps(payload)  # Convert payload to JSON string 
+            payload_json = ujson.dumps(payload)  # Dictionary to JSON string 
             
             if boot.client:
                 boot.client.publish('main', payload_json) # Publish the payload 
