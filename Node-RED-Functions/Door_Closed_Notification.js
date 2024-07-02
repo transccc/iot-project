@@ -1,3 +1,4 @@
+// Headers for the HTTP request, content type json
 msg.headers = {
     "Content-Type": "application/json",
     "Authorization": "Bearer your_token"
