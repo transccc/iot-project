@@ -1,6 +1,6 @@
 [
     {
-        "id": "4f685d3ac8681bc2",
+        "id": "780d8bb0b4a96c5b",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "b3541466f728ebf6",
+        "id": "f5f49d9ab92795d2",
         "type": "mqtt in",
-        "z": "4f685d3ac8681bc2",
+        "z": "780d8bb0b4a96c5b",
         "name": "",
         "topic": "main",
         "qos": "2",
@@ -24,14 +24,14 @@
         "y": 160,
         "wires": [
             [
-                "88d4b11546aaa003"
+                "6cc66dcb5be6315c"
             ]
         ]
     },
     {
-        "id": "a1349d4f5bba0c33",
+        "id": "2f09864f3b233bcb",
         "type": "influxdb out",
-        "z": "4f685d3ac8681bc2",
+        "z": "780d8bb0b4a96c5b",
         "influxdb": "41c1eb5b.0e79c4",
         "name": "Influx data",
         "measurement": "sensor_data",
@@ -47,9 +47,9 @@
         "wires": []
     },
     {
-        "id": "88d4b11546aaa003",
+        "id": "6cc66dcb5be6315c",
         "type": "json",
-        "z": "4f685d3ac8681bc2",
+        "z": "780d8bb0b4a96c5b",
         "name": "",
         "property": "payload",
         "action": "parse",
@@ -58,18 +58,18 @@
         "y": 160,
         "wires": [
             [
-                "92a208893a451185",
-                "9a1eae89fdc99070",
-                "a28e46861f55d62d",
-                "ea116ca615da04e7",
-                "d2e0d31e63132658"
+                "560a64492beff986",
+                "61d0db9b63780ab6",
+                "8a314865f5a32125",
+                "befd83210bab998a",
+                "a9fcf7ca6f251114"
             ]
         ]
     },
     {
-        "id": "92a208893a451185",
+        "id": "560a64492beff986",
         "type": "debug",
-        "z": "4f685d3ac8681bc2",
+        "z": "780d8bb0b4a96c5b",
         "name": "temperature:",
         "active": true,
         "tosidebar": true,
@@ -84,9 +84,9 @@
         "wires": []
     },
     {
-        "id": "9a1eae89fdc99070",
+        "id": "61d0db9b63780ab6",
         "type": "debug",
-        "z": "4f685d3ac8681bc2",
+        "z": "780d8bb0b4a96c5b",
         "name": "Humidity:",
         "active": true,
         "tosidebar": true,
@@ -101,9 +101,9 @@
         "wires": []
     },
     {
-        "id": "a28e46861f55d62d",
+        "id": "8a314865f5a32125",
         "type": "debug",
-        "z": "4f685d3ac8681bc2",
+        "z": "780d8bb0b4a96c5b",
         "name": "Collision_status:",
         "active": true,
         "tosidebar": true,
@@ -118,11 +118,11 @@
         "wires": []
     },
     {
-        "id": "ea116ca615da04e7",
+        "id": "befd83210bab998a",
         "type": "function",
-        "z": "4f685d3ac8681bc2",
+        "z": "780d8bb0b4a96c5b",
         "name": "Format for InfluxDB",
-        "func": "var temperature = parseFloat(msg.payload.temperature);\nvar humidity = parseFloat(msg.payload.humidity);\nvar reed_status = parseFloat(msg.payload.reed_status);  // Ensure this is always a string or a float\n\nif (isNaN(temperature) || isNaN(humidity)) {\n    node.error(\"Payload is missing required numerical fields\", msg);\n    return null;\n}\n\nmsg.payload = {\n    temperature: temperature,\n    humidity: humidity,\n    reed_status: reed_status  \n};\n\nmsg.measurement = \"sensor_data\";\nreturn msg;\n\n\n",
+        "func": "var temperature = parseFloat(msg.payload.temperature);\nvar humidity = parseFloat(msg.payload.humidity);\nvar reed_status = parseFloat(msg.payload.reed_status);\n\nif (isNaN(temperature) || isNaN(humidity)) {\n    node.error(\"Payload is missing required numerical fields\", msg);\n    return null;\n}\n\nmsg.payload = {\n    temperature: temperature,\n    humidity: humidity,\n    reed_status: reed_status  \n};\n\nmsg.measurement = \"sensor_data\";\nreturn msg;\n\n\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -133,14 +133,14 @@
         "y": 300,
         "wires": [
             [
-                "a1349d4f5bba0c33"
+                "2f09864f3b233bcb"
             ]
         ]
     },
     {
-        "id": "d2e0d31e63132658",
+        "id": "a9fcf7ca6f251114",
         "type": "rbe",
-        "z": "4f685d3ac8681bc2",
+        "z": "780d8bb0b4a96c5b",
         "name": "",
         "func": "rbe",
         "gap": "",
@@ -153,14 +153,14 @@
         "y": 260,
         "wires": [
             [
-                "11f358c99599a25b"
+                "d3d5b4c17e3d4576"
             ]
         ]
     },
     {
-        "id": "11f358c99599a25b",
+        "id": "d3d5b4c17e3d4576",
         "type": "switch",
-        "z": "4f685d3ac8681bc2",
+        "z": "780d8bb0b4a96c5b",
         "name": "",
         "property": "payload.reed_status",
         "propertyType": "msg",
@@ -183,17 +183,17 @@
         "y": 360,
         "wires": [
             [
-                "d2d5c58f998a15d5"
+                "054f6a44c46aaf39"
             ],
             [
-                "fbd01f64ded60a7b"
+                "a9d13e62438f7ab6"
             ]
         ]
     },
     {
-        "id": "d2d5c58f998a15d5",
+        "id": "054f6a44c46aaf39",
         "type": "function",
-        "z": "4f685d3ac8681bc2",
+        "z": "780d8bb0b4a96c5b",
         "name": "Door Open Notification",
         "func": "msg.headers = {\n    \"Content-Type\": \"application/json\",\n    \"Authorization\": \"Bearer your_token\"\n};\nmsg.payload = {\n    \"active\": true,\n    \"iden\": \"your_token\",\n    \"created\": (new Date()).getTime() / 1000,\n    \"modified\": (new Date()).getTime() / 1000,\n    \"type\": \"note\",\n    \"dismissed\": false,\n    \"direction\": \"self\",\n    \"sender_iden\": \"your_id\",\n    \"sender_email\": \"your_mail@gmail.com\",\n    \"sender_email_normalized\": \"your_mail@gmail.com\",\n    \"sender_name\": \"your_name\",\n    \"receiver_iden\": \"your_id\",\n    \"receiver_email\": \"your_mail@gmail.com\",\n    \"receiver_email_normalized\": \"your_mail@gmail.com\",\n    \"title\": \"Door Status Notification\",\n    \"body\": \"Door is open\"\n};\nreturn msg;",
         "outputs": 1,
@@ -206,14 +206,14 @@
         "y": 360,
         "wires": [
             [
-                "f3eb6e3a33b0b6be"
+                "cb7e8a2129f6d461"
             ]
         ]
     },
     {
-        "id": "fbd01f64ded60a7b",
+        "id": "a9d13e62438f7ab6",
         "type": "function",
-        "z": "4f685d3ac8681bc2",
+        "z": "780d8bb0b4a96c5b",
         "name": "Door Closed Notification",
         "func": "msg.headers = {\n    \"Content-Type\": \"application/json\",\n    \"Authorization\": \"Bearer your_token\"\n};\nmsg.payload = {\n    \"active\": true,\n    \"iden\": \"your_token\",\n    \"created\": (new Date()).getTime() / 1000,\n    \"modified\": (new Date()).getTime() / 1000,\n    \"type\": \"note\",\n    \"dismissed\": false,\n    \"direction\": \"self\",\n    \"sender_iden\": \"your_id\",\n    \"sender_email\": \"your_mail@gmail.com\",\n    \"sender_email_normalized\": \"your_mail@gmail.com\",\n    \"sender_name\": \"your_name\",\n    \"receiver_iden\": \"your_id\",\n    \"receiver_email\": \"your_mail@gmail.com\",\n    \"receiver_email_normalized\": \"your_mail@gmail.com\",\n    \"title\": \"Door Status Notification\",\n    \"body\": \"Door is closed\"\n};\nreturn msg;",
         "outputs": 1,
@@ -226,14 +226,14 @@
         "y": 400,
         "wires": [
             [
-                "f3eb6e3a33b0b6be"
+                "cb7e8a2129f6d461"
             ]
         ]
     },
     {
-        "id": "f3eb6e3a33b0b6be",
+        "id": "cb7e8a2129f6d461",
         "type": "http request",
-        "z": "4f685d3ac8681bc2",
+        "z": "780d8bb0b4a96c5b",
         "name": "",
         "method": "POST",
         "ret": "txt",
