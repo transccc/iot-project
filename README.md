@@ -208,7 +208,7 @@ To enable push notifications, you will use Pushbullet to send messages. Follow t
      - **Organization**: Enter the organization name.
      - **Bucket**: Enter the bucket name.
 
-- For more detailed instructions and if you encounter bugs, use the [InfluxDB Documentation](https://docs.influxdata.com/influxdb/v2.0/get-started/) and the [Node-RED Documentation](https://nodered.org/docs/). There are also plenty of resources and other tutorials on YouTube that may help you expand the projekt and learn more about Node-RED.
+- For more detailed instructions and if you encounter bugs, use the [InfluxDB Documentation](https://docs.influxdata.com/influxdb/v2.0/get-started/) and the [Node-RED Documentation](https://nodered.org/docs/). There are also plenty of resources and other tutorials on YouTube that may help you expand the project and learn more about Node-RED.
 
 
  ### Core functionalites of the code
