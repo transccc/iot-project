@@ -292,7 +292,7 @@ Gives the ip adress of the Pico in the network
 Wi-Fi provides a fast and easy connection between devices and is a convenient solution for this project, as it was easy to set up and required no extra parts. The obvious disadvantage of Wi-Fi is its limited range; this project can only effectively work at a fixed location close to a router. Wi-Fi also consumes a significant amount of battery power compared to solutions like LoRa. However, both of these are not issues for the current setup, as it involves a door, which is most likely near a router and someone who can replace and charge the power bank. However, for different projects using only a DHT11 sensor, this is a clear disadvantage.
 <br>
 <br>
-As previously seen in the code section, MQTT is used to transmit data to a broker, specifically a local broker using Mosquitto. This process involves connecting to Wi-Fi and then to the MQTT broker on the local host. The client publishes messages to this broker in the form of packets (handled by the library in simple.py) that contain a JSON payload, which is the information used in Node-RED
+As previously seen in the code section, MQTT is used to transmit data to a broker, specifically a local broker using Mosquitto. This process involves connecting to Wi-Fi and then to the MQTT broker that is locally hosted. The client publishes messages to this broker in the form of packets (handled by the library in simple.py) that contain a JSON payload, which is the information used in Node-RED
 
 The payload includes temperature, humidity, and reed switch status data:
 ```
