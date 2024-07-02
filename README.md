@@ -148,7 +148,7 @@ After this, you can easily download the provided bash script [here](https://gith
 - **Download the script**: Click [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script.bat) to download the bash script to your local machine.
 - **Execute the script**:
   - Run the script
-  - The script will prompt you to enter a username, password, and topic (referred to as MQTT_USER, MQTT_PASS, and the MQTT topic "main"). This will set up the broker on your local machine. Make sure the path matches that in the script. To check, right-click on mosquitto.exe, select "Properties", and check the "Location" field. If the location does not match, update the path accordingly in the script.
+  - The script will prompt you to enter a username, password, and topic, that is MQTT_USER, MQTT_PASS, and topic "main" from earlier. This will set up the broker on your local machine. Make sure the path matches that in the script. To check, right-click on mosquitto.exe, select "Properties", and check the "Location" field. If the location does not match, update the path accordingly in the script.
 
 ### 4. Set Up Node-RED
 
