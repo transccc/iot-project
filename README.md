@@ -180,8 +180,6 @@ To enable push notifications, you will use Pushbullet to send messages. Follow t
     This will provide the necessary information to fill out the push notification functions in node-red.
 ### Setting Up InfluxDB
 
-Follow these steps to download, install, and configure InfluxDB, and integrate it with Node-RED:
-
 1. **Download and Install InfluxDB**:
    - Go to the [InfluxData Downloads page](https://www.influxdata.com/downloads/).
    - Select the appropriate version for your operating system and follow the instructions to download and install InfluxDB.
