@@ -63,8 +63,7 @@ def main_loop():
         time.sleep(2)
 
 try:
-    if boot.client:     # Connect to MQTT client and start the main loop
-        boot.client.connect()
+    if boot.client:     # Check connection
         main_loop()
     else:
         print("MQTT client is not available. Exiting main loop.")
