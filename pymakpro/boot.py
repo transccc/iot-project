@@ -20,8 +20,8 @@ def setup_mqtt():
     try:
         print("Setting up MQTT connection...")
         client = MQTTClient('pico_client', '192.168.1.225', user=keys.MQTT_USER, password=keys.MQTT_PASS) #Creates an instance client with given parameters 
-        client.connect()
-        client.subscribe('main')# Subscribe to the 'main' topic
+        client.connect()#Establishes a TCP connection to the MQTT broker
+        client.subscribe('main')#Subscribe to the 'main' topic, not really necessary in this case as the Pico does not receive packets in this implementation
         print("MQTT setup complete")
     except Exception as e:
         print("Failed to setup MQTT: {}".format(e))
