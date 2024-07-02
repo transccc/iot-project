@@ -116,7 +116,7 @@ I used Node-Red and InfluxDB as the main platforms for this project. Node-Red pr
     except Exception as e:
         print("Failed to setup MQTT: {}".format(e))
   ```
- -  Add MQTT_USER and MQTT_PASS to the keys.py file so that MQTTClient() can use these credentials to connect to the broker. While the example shows the client subscribing to the "main" topic, it is crucial to understand that subscribing is not required for publishing messages. The client, which is pico_client, subscribes to the "main" topic in this example, but this can be omitted if the Pico only needs to publish data, which is the case. Ensure that the topic name in your publish and subscribe calls matches the one set up on the broker. Both MQTT_USER and MQTT_PASS are important for future instructions as they serve as security credentials that must match the broker's configuration.
+ -  Add MQTT_USER and MQTT_PASS to the keys.py file so that MQTTClient() can use these credentials to connect to the broker. The client, which is pico_client, subscribes to the "main" topic in my code, but this can be omitted if the Pico only needs to publish data, as only the TCP connection established by client.connect() is required to publish. Both MQTT_USER and MQTT_PASS are important for future instructions as they serve as security credentials that must match the broker's configuration.
   
 ### Setting Up Mosquitto and Node-RED for MQTT Communication
 
