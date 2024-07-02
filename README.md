@@ -130,7 +130,7 @@ password_file C:\Program Files\Mosquitto\passwd
 ```
 ### ⚠️ Firewall Configuration and path
 
-When setting up Mosquitto as your MQTT broker, ensure that your firewall is configured to allow traffic on the default MQTT port 1883. Failure to do so can prevent clients (e.g., Pico) from connecting to the broker. Also, ensure that the path C:\Program Files\Mosquitto\passwd is correct for you. To verify this,  select "Properties" of themosquitto.exe and check the "Location" to confirm the path. If the path is different, adjust it. 
+When setting up Mosquitto as your MQTT broker, ensure that your firewall is configured to allow traffic on the default MQTT port 1883. Failure to do so can prevent clients (e.g., Pico) from connecting to the broker. Also, ensure that the path C:\Program Files\Mosquitto\passwd is correct for you. To verify this,  select "Properties" of "mosquitto.exe" and check the "Location" to confirm the path. If the path is different, adjust it. 
 ### 2. Install Node-RED
 
 Next, install Node-RED by running the following command in the Command Prompt:
