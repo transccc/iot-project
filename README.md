@@ -42,7 +42,7 @@ I chose to build this project to monitor the temperature and humidity in my room
 
 
 ### Steps for Computer Setup
-1. **Flashing Firmware:**
+1. **Flashing:**
    - Hold the BOOTSEL button and plug in the Pico WH with the USB cable.
    - Drag the [firmware file](https://micropython.org/download/RPI_PICO_W/) into the drive that pops up (RPI-RP2).
 
