@@ -143,9 +143,7 @@ npm install -g --unsafe-perm node-red
 
 ### 3. Download and Execute the Bash Script
 
-After this, you can easily download the provided bash script [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script)(You should also have it in the "iot-project-main" folder if you downloaded the repository). This script allows you to seamlessly start up Mosquitto and Node-RED by providing a username, password, and topic. Remember the MQTT_USER, MQTT_PASS, and topic "main" from earlier? These should match the values that you plug into the script. These details will also be used in localhost:1880 when creating the MQTT input node in Node-RED.
-
-- **Download the script**: Click [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script.bat) to download the bash script to your local machine.
+After this, you can easily download the provided bash script [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script.bat)(You should also have it in the "iot-project-main" folder if you downloaded the repository). This script allows you to seamlessly start up Mosquitto and Node-RED by providing a username, password, and topic. Remember the MQTT_USER, MQTT_PASS, and topic "main" from earlier? These should match the values that you plug into the script. These details will also be used in localhost:1880 when creating the MQTT input node in Node-RED.
 - **Execute the script**:
   - Run the script
   - The script will prompt you to enter a username, password, and topic, that is MQTT_USER, MQTT_PASS, and topic "main" from earlier. This will set up the broker on your local machine. Make sure the path matches that in the script. To check, right-click on mosquitto.exe, select "Properties", and check the "Location" field. If the location does not match, update the path accordingly in the script.
@@ -155,7 +153,7 @@ After this, you can easily download the provided bash script [here](https://gith
 Configure Node-RED to work with your MQTT setup:
 
 - **Open Node-RED**: In your web browser, go to `localhost:1880`.
-- **Import the Node-RED Flow**: Download the Node-RED flow from [here](https://github.com/transccc/iot-project/blob/main/node-red_flow).
+- **Import the Node-RED Flow**: Download the Node-RED flow from [here](https://github.com/transccc/iot-project/blob/main/node-red_flow) or copy from the repository.
   - In Node-RED, use the import function to import the flow file.
 - **Configure the MQTT Input Node**:
   - Locate the MQTT input node in the imported flow, double-click to edit its properties, and update the username, password, and topic fields to match the values provided in the bash script.
@@ -235,7 +233,7 @@ dht11.measure()
             humidity_dht11 = dht11.humidity()
 ```
 The dht11.measure() function reads the current temperature and humidity values from the DHT11 sensor. The values are stored in temperature_dht11 and humidity_dht11.
-The rest of the code can be found in the [project repository](https://github.com/transccc/iot-project/tree/main/pymakpro)
+The rest of the code can be found in the [project repository](https://github.com/transccc/iot-project/tree/main/pymakpro) folder. 
 ## Transmitting the Data / Connectivity
 ### Data Transmission Details
 Wifi is used primaliy used in this projet to connect devices within the network. This is connection is done trough a central hub: The Wi-Fi router. The project also uses wifi for the HTTP post request, which instead sends the data to the router then to the Pushbullet which then sends the message as a notfication to my phone. As seen in the previously mentioned code, the code operates trough
