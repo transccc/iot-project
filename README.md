@@ -124,7 +124,7 @@ I used Node-Red and InfluxDB as the main platforms for this project. Node-Red pr
 
 First, download [Mosquitto](https://mosquitto.org/download/).
 
-After downloading, locate the `mosquitto.conf` file in the newly created Mosquitto folder with admin and add the following lines at the end:
+After downloading, locate the "mosquitto.conf" file in the newly created Mosquitto folder with admin and add the following lines at the end:
 ```
 listener 1883
 allow_anonymous false
