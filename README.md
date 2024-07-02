@@ -124,15 +124,41 @@ I used Node-Red and InfluxDB as the main platforms for this project. Node-Red pr
 
 First, download [Mosquitto](https://mosquitto.org/download/).
 
-After downloading, locate the `mosquitto.conf` file in the newly created Mosquitto folder and add the following lines at the end:
+After downloading, locate the `mosquitto.conf` file in the newly created Mosquitto folder with admin and add the following lines at the end:
 ```
 listener 1883
 allow_anonymous false
-password_file C:\Program Files\Mosquitto\passwd
+password_file C:\Program Files\mosquitto\passwd
 ```
+After configuring the configuration file, create a file named "passwd".
+
+Then, open the Command Prompt as an administrator and navigate to the Mosquitto folder with:
+```
+cd "C:\Program Files\mosquitto"
+```
+Execute mosquitto_passwd by typing: 
+```
+mosquitto_passwd -H sha512 -b passwd MQTT_USER MQTT_PASS
+```
+Remember the MQTT_USER, MQTT_PASS from earlier? These should match the values in the cmd. These details will also be used in localhost:1880 when creating the MQTT input node in Node-RED. Something not working, look below
 ### ⚠️ Firewall Configuration and path
 
-When setting up Mosquitto as your MQTT broker, ensure that your firewall is configured to allow traffic on the default MQTT port 1883. Failure to do so can prevent clients (e.g., Pico) from connecting to the broker. Also, ensure that the path C:\Program Files\Mosquitto\passwd is correct for you. To verify this,  select "Properties" of "mosquitto.exe" and check the "Location" to confirm the path. If the path is different, adjust it. 
+1. **Configure Firewall**: Ensure your firewall allows traffic on the default MQTT port 1883. Failure to do so can prevent clients (e.g., Pico) from connecting to the broker.
+
+2. **Verify Password File Path**: Ensure the path C:\Program Files\mosquitto\passwd is correct:
+    - Right-click on mosquitto.exe and select "Properties".
+    - Check the "Location" to confirm the path.
+    - If the path is different, adjust it accordingly.
+
+3. **Add Mosquitto to System Path**:
+    - Open sysdm.cpl.
+    - Click on the "Advanced" tab.
+    - Click on "Environment Variables".
+    - In the "System variables" section, find the Path variable and click "Edit".
+    - Click "New" and add the path to Mosquitto.
+
+
+
 ### 2. Install Node-RED
 
 Next, install Node-RED by running the following command in the Command Prompt:
@@ -143,16 +169,14 @@ npm install -g --unsafe-perm node-red
 
 ### 3. Download and Execute the Bash Script
 
-After this, you can easily download the provided bash script [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script.bat)(You should also have it in the "iot-project-main" folder if you downloaded the repository). This script allows you to seamlessly start up Mosquitto and Node-RED by providing a username, password, and topic. Remember the MQTT_USER, MQTT_PASS, and topic "main" from earlier? These should match the values that you plug into the script. These details will also be used in localhost:1880 when creating the MQTT input node in Node-RED.
-- **Execute the script**:
-  - Run the script
-  - The script will prompt you to enter a username, password, and topic, that is MQTT_USER, MQTT_PASS, and topic "main" from earlier. This will set up the broker on your local machine. Make sure the path matches that in the script. To check, right-click on mosquitto.exe, select "Properties", and check the "Location" field. If the location does not match, update the path accordingly in the script.
+After this, you can  download the bash script [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script.bat)(You should also have it in the "iot-project-main" folder if you downloaded the repository). This script allows you to start up Mosquitto and Node-RED easily. 
+- **Run the script**
 
 ### 4. Set Up Node-RED
 
 Configure Node-RED to work with your MQTT setup:
 
-- **Open Node-RED**: In your web browser, go to `localhost:1880`.
+- **Open Node-RED**: In your web browser, go to localhost:1880.
 - **Import the Node-RED Flow**: Download the Node-RED flow from [here](https://github.com/transccc/iot-project/blob/main/node-red_flow) or copy from the repository.
   - In Node-RED, use the import function to import the flow file.
 - **Configure the MQTT Input Node**:
@@ -191,7 +215,7 @@ To enable push notifications, you will use Pushbullet to send messages. Follow t
 
 
 3. **Access InfluxDB UI**:
-   - Open your web browser and go to `http://localhost:8086`.
+   - Open your web browser and go to http://localhost:8086.
    - Follow the on-screen instructions to set up your InfluxDB instance.
 
 4. **Create an Account and Configure InfluxDB**:
@@ -201,9 +225,9 @@ To enable push notifications, you will use Pushbullet to send messages. Follow t
    - Generate an API token and save it for future use.
 
 5. **Configure InfluxDB in Node-RED**:
-   - Open Node-RED in your web browser (`http://localhost:1880`).
+   - Open Node-RED in your web browser (http://localhost:1880).
    - Open the InfluxDB node and configure it:
-     - **Server**: Enter `http://localhost:8086`.
+     - **Server**: Enter http://localhost:8086.
      - **Token**: Enter the API token you generated.
      - **Organization**: Enter the organization name.
      - **Bucket**: Enter the bucket name.
