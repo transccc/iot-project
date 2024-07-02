@@ -143,7 +143,7 @@ npm install -g --unsafe-perm node-red
 
 ### 3. Download and Execute the Bash Script
 
-After this, you can easily download the provided bash script [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script). This script allows you to seamlessly start up Mosquitto and Node-RED by providing a username, password, and topic. Remember the MQTT_USER, MQTT_PASS, and topic "main" from earlier? These should match the values that you plug into the script. These details will also be used in localhost:1880 when creating the MQTT input node in Node-RED.
+After this, you can easily download the provided bash script [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script)(You should also have it in the "iot-project-main" folder if you downloaded the repository). This script allows you to seamlessly start up Mosquitto and Node-RED by providing a username, password, and topic. Remember the MQTT_USER, MQTT_PASS, and topic "main" from earlier? These should match the values that you plug into the script. These details will also be used in localhost:1880 when creating the MQTT input node in Node-RED.
 
 - **Download the script**: Click [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script.bat) to download the bash script to your local machine.
 - **Execute the script**:
