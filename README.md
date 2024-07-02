@@ -175,7 +175,7 @@ To enable push notifications, you will use Pushbullet to send messages. Follow t
     ```
     curl -u "YOUR_ACCESS_TOKEN_HERE:" https://api.pushbullet.com/v2/users/me
     ```
-    This will provide the necessary information to fill out the push notification functions in node-red.
+    This will provide the necessary information to fill out the push notification [functions](https://github.com/transccc/iot-project/tree/main/Node-RED-Functions) in node-red.
 ### Setting Up InfluxDB
 
 1. **Download and Install InfluxDB**:
