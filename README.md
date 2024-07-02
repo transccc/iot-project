@@ -146,12 +146,7 @@ After this, you can easily download the provided bash script [here](https://gith
 
 - **Download the script**: Click [here](https://github.com/transccc/iot-project/blob/main/mosquitto_bash_script) to download the bash script to your local machine.
 - **Execute the script**:
-  - Open your terminal.
-  - Navigate to the directory where the script is downloaded.
-  - Run the script with the command:  
-    ```
-    bash mosquitto_bash_script.sh
-    ```
+  - Run the script
   - The script will prompt you to enter a username, password, and topic. That is MQTT_USER, MQTT_PASS, and topic "main". This creates the broker on your local machine. 
 
 ### 4. Set Up Node-RED
