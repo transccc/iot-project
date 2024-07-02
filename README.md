@@ -236,7 +236,7 @@ To enable push notifications, you will use Pushbullet to send messages. Follow t
 
 
  ### Core functionalites of the code
-The `main_loop()` function orchestrates the core operations of the device, including blinking the LED, checking the reed switch status, reading temperature and humidity from the DHT11 sensor, and publishing this data to an MQTT broker.
+The "main_loop()" function orchestrates the core operations of the device, including blinking the LED, checking the reed switch status, reading temperature and humidity from the DHT11 sensor, and publishing this data to an MQTT broker.
 ```
   while True:
         try:
@@ -336,8 +336,8 @@ The broker manages topics, and clients subscribe to get messages. In this projec
    - In the configuration options, select the bucket that you connected to Node-RED.
 
 5. **Select Measurement and Fields**:
-   - Click on `_measurement` and select `sensor_data`.
-   - In the field window, select the fields `reed_status`, `humidity`, and `temperature`.
+   - Click on "_measurement" and select "sensor_data".
+   - In the field window, select the fields "reed_status", "humidity", and "temperature".
 
 6. **Visualize Data**:
    - Adjust the settings as necessary to optimize the visualization.
