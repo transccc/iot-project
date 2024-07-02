@@ -66,7 +66,7 @@ try:
     if boot.client:     # Check connection
         main_loop()
     else:
-        print("MQTT client is not available. Exiting main loop.")
+        print("MQTT client is not initialized")
 except Exception as e:
     print(f"ERROR {e}")
     time.sleep(10)
