@@ -1,22 +1,22 @@
 msg.headers = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer o.KCc25HsZNu1CvqN8Vda3tOwDVXrQ8h2l"
+    "Authorization": "Bearer your_token"
 };
 msg.payload = {
     "active": true,
-    "iden": "ujymYKp16KysjycOpzjGay",
+    "iden": "your_token",
     "created": (new Date()).getTime() / 1000,
     "modified": (new Date()).getTime() / 1000,
     "type": "note",
     "dismissed": false,
     "direction": "self",
-    "sender_iden": "ujymYKp16Ky",
-    "sender_email": "realnnanos@gmail.com",
-    "sender_email_normalized": "realnnanos@gmail.com",
-    "sender_name": "Transparent",
-    "receiver_iden": "ujymYKp16Ky",
-    "receiver_email": "realnnanos@gmail.com",
-    "receiver_email_normalized": "realnnanos@gmail.com",
+    "sender_iden": "your_id",
+    "sender_email": "your_mail@gmail.com",
+    "sender_email_normalized": "your_mail@gmail.com",
+    "sender_name": "your_name",
+    "receiver_iden": "your_id",
+    "receiver_email": "your_mail@gmail.com",
+    "receiver_email_normalized": "your_mail@gmail.com",
     "title": "Door Status Notification",
     "body": "Door is closed"
 };
