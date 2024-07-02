@@ -63,7 +63,7 @@ def main_loop():
         time.sleep(2)
 
 try:
-    if boot.client:     # Check connection
+    if boot.client:     # Check client
         main_loop()
     else:
         print("MQTT client is not initialized")
