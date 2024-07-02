@@ -296,8 +296,6 @@ The broker manages topics, and clients subscribe to get messages. In this projec
 ## Presenting the Data
 ### Configuring a Dashboard in InfluxDB
 
-Follow these steps to set up and customize a dashboard in InfluxDB to visualize your sensor data:
-
 1. **Access Dashboards**:
    - Click on "Dashboards" on the left-hand side menu in InfluxDB.
 
