@@ -184,7 +184,7 @@ Configure Node-RED to work with your MQTT setup:
 
 ### 5. Set Up push notifications via HTTP Request in Node-RED
 
-To enable push notifications, with the help of Pushbullet with a de facto webhook:
+To enable push notifications, with the help of Pushbullet with a  webhook:
 
 - **Create a Pushbullet Account**:
   - Go to the [Pushbullet website](https://www.pushbullet.com/).
@@ -262,7 +262,7 @@ The dht11.measure() function reads the current temperature and humidity values f
 The rest of the code can be found in the [project repository](https://github.com/transccc/iot-project/tree/main/pymakpro) folder. 
 ## Transmitting the Data / Connectivity
 ### Data Transmission Details
-Wi-Fi is used primaliy used in this projet to connect devices within the network. This is connection is done trough a central hub: The Wi-Fi router. The project also uses Wi-Fi for the HTTP post request, which instead sends the data to the router then to the Pushbullet which then sends the message as a notfication to my phone as a de facto webhook. As seen in the previously mentioned code, the code operates trough
+Wi-Fi is used primaliy used in this projet to connect devices within the network. This is connection is done trough a central hub: The Wi-Fi router. The project also uses Wi-Fi for the HTTP post request, which instead sends the data to the router then to the Pushbullet which then sends the message as a notfication to my phone as a webhook. As seen in the previously mentioned code, the code operates trough
 ```
 def connect_wifi():
     wlan = network.WLAN(network.STA_IF)
