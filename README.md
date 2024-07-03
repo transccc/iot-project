@@ -184,7 +184,7 @@ Configure Node-RED to work with your MQTT setup:
 
 ### 5. Set Up push notifications via HTTP Request in Node-RED
 
-To enable push notifications, you will use Pushbullet to send messages. Follow these steps:
+To enable push notifications, with the help of Pushbullet witha de facto webhook:
 
 - **Create a Pushbullet Account**:
   - Go to the [Pushbullet website](https://www.pushbullet.com/).
