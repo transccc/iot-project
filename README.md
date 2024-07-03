@@ -184,7 +184,7 @@ Configure Node-RED to work with your MQTT setup:
 
 ### 5. Set Up push notifications via HTTP Request in Node-RED
 
-To enable push notifications, with the help of Pushbullet witha de facto webhook:
+To enable push notifications, with the help of Pushbullet with a de facto webhook:
 
 - **Create a Pushbullet Account**:
   - Go to the [Pushbullet website](https://www.pushbullet.com/).
@@ -262,7 +262,7 @@ The dht11.measure() function reads the current temperature and humidity values f
 The rest of the code can be found in the [project repository](https://github.com/transccc/iot-project/tree/main/pymakpro) folder. 
 ## Transmitting the Data / Connectivity
 ### Data Transmission Details
-Wifi is used primaliy used in this projet to connect devices within the network. This is connection is done trough a central hub: The Wi-Fi router. The project also uses wifi for the HTTP post request, which instead sends the data to the router then to the Pushbullet which then sends the message as a notfication to my phone. As seen in the previously mentioned code, the code operates trough
+Wi-Fi is used primaliy used in this projet to connect devices within the network. This is connection is done trough a central hub: The Wi-Fi router. The project also uses Wi-Fi for the HTTP post request, which instead sends the data to the router then to the Pushbullet which then sends the message as a notfication to my phone as a de facto webhook. As seen in the previously mentioned code, the code operates trough
 ```
 def connect_wifi():
     wlan = network.WLAN(network.STA_IF)
@@ -313,7 +313,7 @@ This JSON payload is then published to the MQTT broker as follows:
                 print("MQTT client is not initialized")
 ```
 In this context, "main" is the topic name that is part of the headers for the packet, which the broker uses to categorize and distribute the message to subscribers such as Node-RED.<br><br>
-The broker manages topics, and clients subscribe to get messages. In this project, both Node-RED and the Pico subscribe to the "main" topic, even though you don't need to be subscribed to publish. When the Pico publishes a packet with a JSON payload, the local Mosquitto broker ensures that Node-RED receives it. With QoS set to 0, MQTT does not provide additional message delivery acknowledgments beyond the TCP-level acknowledgments. Node-RED then handles the packets. The data from the Pico is in JSON format, with readings from the DHT11 sensor (temperature and humidity) and the status of the reed switch. These JSON payloads are published every three seconds. MQTT's way of neatly handling real-time data is essential for applications that require quick updates and responses and using a local broker like Mosquitto boosts security and cuts latency as the data stays in the local network. This setup is also higly customisable  Node-RED receives the data from the Pico and processes this information in various ways. For instance, Node-RED can redirect the incoming data to InfluxDB for storage and visualization, allowing for analysis and monitoring of the sensor data over time and in real-time. Node-RED can also send real-time push notifications via HTTP POST requests to Pushbullet, providing alerts about whether the door is open. This versatility is the key reason for the usage of node-red, all locally hosted, quick and analysable 
+The broker manages topics, and clients subscribe to get messages. In this project, both Node-RED and the Pico subscribe to the "main" topic, even though you don't need to be subscribed to publish. When the Pico publishes a packet with a JSON payload, the local Mosquitto broker ensures that Node-RED receives it. With QoS set to 0, MQTT does not provide additional message delivery acknowledgments beyond the TCP-level acknowledgments. Node-RED then handles the packets. The data from the Pico is in JSON format, with readings from the DHT11 sensor (temperature and humidity) and the status of the reed switch. These JSON payloads are published every three seconds. MQTT's way of neatly handling real-time data is essential for applications that require quick updates and responses and using a local broker like Mosquitto boosts security and cuts latency as the data stays in the local network. This setup is also higly customisable  Node-RED receives the data from the Pico and processes this information in various ways. For instance, Node-RED can redirect the incoming data to InfluxDB for storage and visualization, allowing for analysis and monitoring of the sensor data over time and in real-time. Node-RED can also send real-time push notifications via HTTP POST requests to Pushbullet, providing a funcional webhook that alerts about whether the door is open. This versatility is the key reason for the usage of node-red, all locally hosted, quick and analysable 
 
 
 
