@@ -178,7 +178,7 @@ Configure Node-RED to work with your MQTT setup:
 
 - **Open Node-RED**: In your web browser, go to localhost:1880.
 - **Import the Node-RED Flow**: Download the Node-RED flow from [here](https://github.com/transccc/iot-project/blob/main/node-red_flow) or copy from the repository.
-  - In Node-RED, use the import function to import the flow file.
+  - In Node-RED, use the import the flow.
 - **Configure the MQTT Input Node**:
   - Locate the MQTT input node in the imported flow, double-click to edit its properties, and update the username, password, and topic fields to match the values provided in the bash script.
 <br><br>
