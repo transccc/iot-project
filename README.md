@@ -181,7 +181,9 @@ Configure Node-RED to work with your MQTT setup:
   - In Node-RED, use the import function to import the flow file.
 - **Configure the MQTT Input Node**:
   - Locate the MQTT input node in the imported flow, double-click to edit its properties, and update the username, password, and topic fields to match the values provided in the bash script.
-
+<br><br>
+- **The imported flow should look something like this:**
+![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Screenshot%202024-07-04%20072238.png)
 ### 5. Set Up push notifications via HTTP Request in Node-RED
 
 To enable push notifications, with the help of Pushbullet with a  webhook:
@@ -199,6 +201,7 @@ To enable push notifications, with the help of Pushbullet with a  webhook:
     ```
     curl -u "YOUR_ACCESS_TOKEN_HERE:" https://api.pushbullet.com/v2/users/me
     ```
+
     This will provide the necessary information to fill out the push notification [functions](https://github.com/transccc/iot-project/tree/main/Node-RED-Functions) in node-red.
 ### Setting Up InfluxDB
 
@@ -294,7 +297,7 @@ Wi-Fi provides a fast and easy connection between devices and is a convenient so
 <br>
 As previously seen in the code section, MQTT is used to transmit data to a broker, specifically a local broker using Mosquitto. This process involves connecting to Wi-Fi and then to the MQTT broker that is locally hosted. The client publishes messages to this broker in the form of packets (handled by the library in simple.py) that contain a JSON payload, which is the information used in Node-RED
 
-The payload includes temperature, humidity, and reed switch status data:
+The payload includes temperature, humidity, and reed switch status data, which a dictionary is created to and then casted into a JSON string:
 ```
  payload = {
                 "temperature": temperature_dht11,
@@ -303,7 +306,7 @@ The payload includes temperature, humidity, and reed switch status data:
             }
 payload_json = ujson.dumps(payload)
 ```
-This JSON payload is then published to the MQTT broker as follows:
+This JSON payload is then published in a packet to the MQTT broker as follows:
 
 ```
   if boot.client:
@@ -312,8 +315,7 @@ This JSON payload is then published to the MQTT broker as follows:
             else:
                 print("MQTT client is not initialized")
 ```
-In this context, "main" is the topic name that is part of the headers for the packet, which the broker uses to categorize and distribute the message to subscribers such as Node-RED.<br><br>
-The broker manages topics, and clients subscribe to get messages. In this project, both Node-RED and the Pico subscribe to the "main" topic, even though you don't need to be subscribed to publish. When the Pico publishes a packet with a JSON payload, the local Mosquitto broker ensures that Node-RED receives it. With QoS set to 0, MQTT does not provide additional message delivery acknowledgments beyond the TCP-level acknowledgments. Node-RED then handles the packets. The data from the Pico is in JSON format, with readings from the DHT11 sensor (temperature and humidity) and the status of the reed switch. These JSON payloads are published every three seconds. MQTT's way of neatly handling real-time data is essential for applications that require quick updates and responses and using a local broker like Mosquitto boosts security and cuts latency as the data stays in the local network. This setup is also higly customisable  Node-RED receives the data from the Pico and processes this information in various ways. For instance, Node-RED can redirect the incoming data to InfluxDB for storage and visualization, allowing for analysis and monitoring of the sensor data over time and in real-time. Node-RED can also send real-time push notifications via HTTP POST requests to Pushbullet, providing a funcional webhook that alerts about whether the door is open. This versatility is the key reason for the usage of node-red, all locally hosted, quick and analysable 
+In this context, "main" is the topic name included in the packet headers, which the broker uses to categorize and distribute the message to subscribers such as Node-RED.The broker manages topics, and clients subscribe to receive messages. In this project, both Node-RED and the Pico subscribe to the "main" topic, although subscription is not required for publishing. When the Pico publishes a packet with a JSON payload, the local Mosquitto broker ensures that Node-RED receives it. With QoS set to 0, MQTT relies on TCP-level acknowledgments and does not provide additional message delivery guarantees. Node-RED then processes the packets. The data from the Pico is in JSON format, containing readings from the DHT11 sensor (temperature and humidity) and the status of the reed switch. These JSON packets are published every three seconds. In Node-RED, the second node in the flow, a JSON node, parses the JSON string created by "ujson.dumps(payload)" into JavaScript objects. These objects' properties are then used in directly for InfluxDB, as seen [here](https://github.com/transccc/iot-project/blob/main/Node-RED-Functions/Format_for_InfluxDB.js), to be converted into values such as floats for InfluxDB. They are also used in the filter and switch nodes to form the body of an HTTP POST request. MQTT's way of neatly handling real-time data is essential for applications that require quick updates and responses and using a local broker like Mosquitto boosts security and cuts latency as the data stays in the local network. This setup is also higly customisable  Node-RED receives the data from the Pico and processes this information in various ways. For instance, Node-RED can redirect the incoming data to InfluxDB for storage and visualization, allowing for analysis and monitoring of the sensor data over time and in real-time. Node-RED can also send real-time push notifications via HTTP POST requests to Pushbullet, providing a funcional webhook that alerts about whether the door is open. This versatility is the main reason for the usage of node-red, all locally hosted, quick and analysable 
 
 
 
