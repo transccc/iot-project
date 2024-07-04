@@ -4,13 +4,15 @@
 
 ## Project Overview
 Smart Door + 2 is a project that uses local hosting for real-time analysis of temperature, humidity, and door status. It provides both historical data overview and real-time push notifications about the status of a door and its historical status in relation to temperature. The purpose of the project is to monitor the insulation of a room, particularly through the status of one door, and to provide real-time updates about that door. It incorporates humidity as a data point to allow for the analysis of other factors, such as whether a window was opened, without directly monitoring the windows.
-.
 
 
 
  **Total Time Estimate**: 5-15 hours. Due to the local hosting nature of this project, the actual time required can vary significantly based on skill level and the number of issues encountered, which may not be covered in this tutorial.
 
 **OS**: Windows 11
+
+**High Level Architecture Diagram**
+![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Screenshot%202024-07-05%20010456.png)
 
 ## Objective
 I chose to build this project to monitor the temperature and humidity in my room. The project aims to collect data about the room's climate  and analyze how these conditions are influenced by air exchange between my room and the rest of the house. The analysis of that can hence provide insight into the room's insulation, which often causes the temperatures in my room to exceed those outside or in other parts of the house. Additionally, the design includes real-time updates, allowing me to receive push notifications about whether the door to my room is open. I used a locally hosted platform because I wanted to learn more about networks and Node-Red. Although the project does not create a multi-client MQTT network, it still a good start. 
