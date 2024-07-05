@@ -11,7 +11,7 @@ Smart Door + 2 is a project that uses local hosting for real-time analysis of te
 
 **OS**: Windows 11
 
-**High Level Architecture Diagram**
+**High Level Architecture Diagram:**
 ![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Screenshot%202024-07-05%20010456.png)
 
 ## Objective
@@ -90,7 +90,7 @@ This current draw is sufficient for the power bank to recognize the device as ac
 
 ## Platform
 ### Choice of Platform
-I used Node-Red and InfluxDB as the main platforms for this project. Node-Red provides real-time data analysis with the help of its flow. It is a locally hosted platform with many options, allowing the creation of a full dashboard and data storage with InfluxDB, along with direct HTTP POST requests to Pushbullet. The data is sent using a local MQTT broker for easy integration with Node-Red. At first, I considered using the Node-Red UI for visualisation, but I chose not to because it could not easily provide a aesthetically pleasing dashboard and had no storage capabilities of itself. MQTT, which intigrates with Node-RED, operates on a publish/subscribe model. A client publishes "packets" to a specific topic, and these packets are then received by all clients that have subscribed to that topic. In this case the Pico sends data to the same topic that Node-RED is subscribed to. Node-RED then in turn handles the data to send it to InfluxDB and Pushbullet. For a more in-depth explanation, refer to the connectivity section of this tutorial. The following section will explain how to set up the broker, which acts as the central hub for managing subscriptions and client communications.
+I used Node-Red and InfluxDB as the main platforms for this project. Node-Red provides real-time data analysis with the help of its flow. It is a locally hosted platform with many options, allowing the creation of a full dashboard and data storage by sending HTTP post requests to a locally hosted InfluxDB server, along with direct HTTP POST requests to Pushbullet that gives active alerts to my phone. The data is sent using a local MQTT broker for easy integration with Node-Red. At first, I considered using the Node-Red UI for visualisation, but I chose not to because it could not easily provide a aesthetically pleasing dashboard and had no storage capabilities of itself. MQTT, which intigrates with Node-RED, operates on a publish/subscribe model. A client publishes "packets" to a specific topic, and these packets are then received by all clients that have subscribed to that topic. In this case the Pico sends data to the same topic that Node-RED is subscribed to. Node-RED then in turn handles the data to send it to InfluxDB and Pushbullet. For a more in-depth explanation, refer to the connectivity section of this tutorial. The following section will explain how to set up the broker, which acts as the central hub for managing subscriptions and client communications.
 ## The Code
 ### Set up Wi-Fi and MQTT credentials 
 - In the code boot.py you may notice that there are keys
@@ -349,7 +349,7 @@ The data from the Pico is in JSON format, containing readings from the DHT11 sen
    - You should now see a graph displaying temperature data over time.
 ![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Sk%C3%A4rmbild%202024-06-30%20033916.png)
 ### InfluxDB
-I chose InfluxDB because of its strength in time series. It can easily save data over a period for later visual analysis. This is done by observing how the graphs change, especially regarding whether the door was open and the room's climate. The UI can also be designed without necessarily knowing how to write Flux. On the other hand, the data-saving abilities sometimes made it difficult to make changes, as new data types would conflict with previous readings. This largely made me choose to do the HTTP post request in Node-RED instead of webhook in InfluxDB, as I had to create new buckets which took excessive time, due to my inability to properly delete them via the terminal. For the push notification automation process, I went straight to Node-RED to set up the HTTP post to Pushbullet. This is  not dependent on InfluxDB, and the project would work just fine without it. Still, I wanted to have an active component in my project.
+I chose InfluxDB because of its strength in time series and its local hosting nature. It can easily save data over a period for later visual analysis. This is done by observing how the graphs change, especially regarding whether the door was open and the room's climate. The UI can also be designed without necessarily knowing how to write Flux. On the other hand, the data-saving abilities sometimes made it difficult to make changes, as new data types would conflict with previous readings. This largely made me choose to do the HTTP post request in Node-RED instead of webhook in InfluxDB, as I had to create new buckets which took excessive time, due to my inability to properly delete them via the terminal. For the push notification automation process, I went straight to Node-RED to set up the HTTP post to Pushbullet. This is  not dependent on InfluxDB, and the project would work just fine without it. Still, I wanted to have an active component in my project.
 - Data is saved indefinitely as soon as the data arrives i.e 3 seconds
 
 ## Finalizing the design
