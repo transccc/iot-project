@@ -12,7 +12,7 @@ Smart Door + 2 is a project that uses local hosting for real-time analysis of te
 **OS**: Windows 11
 
 **High Level Architecture Diagram:**
-![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Screenshot%202024-07-05%20010456.png)
+![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Screenshot%202024-07-05%20014603.png)
 
 ## Objective
 I chose to build this project to monitor the temperature and humidity in my room. The project aims to collect data about the room's climate  and analyze how these conditions are influenced by air exchange between my room and the rest of the house. The analysis of that can hence provide insight into the room's insulation, which often causes the temperatures in my room to exceed those outside or in other parts of the house. Additionally, the design includes real-time updates, allowing me to receive push notifications about whether the door to my room is open. I used a locally hosted platform because I wanted to learn more about networks and Node-Red. Although the project does not create a multi-client MQTT network, it still a good start. 
