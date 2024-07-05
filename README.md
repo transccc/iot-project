@@ -11,8 +11,6 @@ Smart Door + 2 is a project that uses local hosting for real-time analysis of te
 
 **OS**: Windows 11
 
-**High Level Architecture Diagram:**
-![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Screenshot%202024-07-05%20014603.png)
 
 ## Objective
 I chose to build this project to monitor the temperature and humidity in my room. The project aims to collect data about the room's climate  and analyze how these conditions are influenced by air exchange between my room and the rest of the house. The analysis of that can hence provide insight into the room's insulation, which often causes the temperatures in my room to exceed those outside or in other parts of the house. Additionally, the design includes real-time updates, allowing me to receive push notifications about whether the door to my room is open. I used a locally hosted platform because I wanted to learn more about networks and Node-Red. Although the project does not create a multi-client MQTT network, it still a good start. 
@@ -90,7 +88,12 @@ This current draw is sufficient for the power bank to recognize the device as ac
 
 ## Platform
 ### Choice of Platform
-I used Node-Red and InfluxDB as the main platforms for this project. Node-Red provides real-time data analysis with the help of its flow. It is a locally hosted platform with many options, allowing the creation of a full dashboard and data storage by sending HTTP post requests to a locally hosted InfluxDB server, along with direct HTTP POST requests to Pushbullet that gives active alerts to my phone. The data is sent using a local MQTT broker for easy integration with Node-Red. At first, I considered using the Node-Red UI for visualisation, but I chose not to because it could not easily provide a aesthetically pleasing dashboard and had no storage capabilities of itself. MQTT, which intigrates with Node-RED, operates on a publish/subscribe model. A client publishes "packets" to a specific topic, and these packets are then received by all clients that have subscribed to that topic. In this case the Pico sends data to the same topic that Node-RED is subscribed to. Node-RED then in turn handles the data to send it to InfluxDB and Pushbullet. For a more in-depth explanation, refer to the connectivity section of this tutorial. The following section will explain how to set up the broker, which acts as the central hub for managing subscriptions and client communications.
+I used Node-Red and InfluxDB as the main platforms for this project. Node-Red provides real-time data analysis with the help of its flow. It is a locally hosted platform with many options, allowing the creation of a full dashboard and data storage by sending HTTP post requests to a locally hosted InfluxDB server, along with direct HTTP POST requests to Pushbullet that gives active alerts to my phone. The data is sent using a local MQTT broker for easy integration with Node-Red. At first, I considered using the Node-Red UI for visualisation, but I chose not to because it could not easily provide a aesthetically pleasing dashboard and had no storage capabilities of itself. MQTT, which intigrates with Node-RED, operates on a publish/subscribe model. A client publishes "packets" to a specific topic, and these packets are then received by all clients that have subscribed to that topic. In this case the Pico sends data to the same topic that Node-RED is subscribed to. Node-RED then in turn handles the data to send it to a locally hosted InfluxDB server with the help of a HTTP POST request, which in turn stores the data that Node-RED converted into a format readable by InfluxDB. Node-RED checks and handles condition to which a HTTP POST requst should be sent to Pushbullet to then be sent as a push notification.  
+**High Level Architecture Diagram:**
+![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Screenshot%202024-07-05%20014603.png)
+
+
+For a more in-depth explanation, refer to the connectivity section of this tutorial. The following section will explain how to set up the broker, which acts as the central hub for managing subscriptions and client communications.
 ## The Code
 ### Set up Wi-Fi and MQTT credentials 
 - In the code boot.py you may notice that there are keys
