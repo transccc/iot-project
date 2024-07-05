@@ -60,7 +60,7 @@ I chose to build this project to monitor the temperature and humidity in my room
      - Selecting the lighting icon and then selecting development mode in Pymakr will now automatically upload the files to the device.
 ## Putting Everything Together
 ### Circuit Diagram
-![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Screenshot%202024-06-29%20002548.png)
+![Alt text](https://github.com/transccc/iot-project/blob/main/pictures/Untitled%20Sketch_bb.png)
 
 Additionally, use female-to-male wires to connect the reed switch at an appropriate location where the magnet can detect when the door is closed.
 ### Electrical Calculations
