@@ -326,7 +326,6 @@ The data from the Pico is in JSON format, containing readings from the DHT11 sen
 msg.measurement = "sensor_data"; // The measurement series
 ```
 ```
-//The fields 
 msg.payload = {
     temperature: temperature,
     humidity: humidity,
